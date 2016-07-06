@@ -1,0 +1,177 @@
+body, html { 
+	padding: 0; 
+	margin: 0; 
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; 
+}  
+
+@media all and (min-width: 960px) { 
+ 
+	nav { 
+		width: 100%; 
+		background-color: #eee; 
+		height: 70px; 
+		border-top: 5px solid #000; 
+		
+	}  
+
+	#nav-text { 
+		vertical-align: middle; 
+		padding: 20px; 
+		font-size: 20px;
+	} 
+
+	#nav-text a {
+		padding: 20px; 
+		text-decoration: none; 
+		color: #000;
+	} 
+
+	#nav-text a:hover { 
+		color: #fff;
+	} 
+
+	#search-control:hover{ 
+		color: #fff; 
+		cursor: pointer;
+	} 
+
+	#search-bar { 
+		cursor: text; 
+		display: none; 
+
+
+	}
+
+	#account { 
+		float: right;  
+	}  
+
+	#account:hover { 
+		cursor: pointer; 
+		color: #ffffff;
+	}
+
+	#login { 
+		width: 250px; 
+		background-color: #eee; 
+		margin: 0 auto; 
+		float: right;  
+		padding-bottom: 15px; 
+		display: none 
+	}  
+
+	#login-content { 
+		width: 200px; 
+		margin: 0 auto; 
+		padding: 5px; 
+	} 
+
+	#login input { 
+		margin-top: 10px; 
+		border-radius: 5px; 
+		height: 30px; 
+		width: 200px; 
+		margin-left: 0; 
+		border: none; 
+		font-size: 15px; 
+		padding: 5px;
+	} 
+
+	#login-button { 
+		background-color: #000; 
+		color: #fff; 
+	} 
+
+	#login-button:hover{ 
+		cursor: pointer; 
+		background-color: #000;
+	} 
+
+	#log-bttm { 
+		margin-top: 10px; 
+	} 
+
+	#sign-up{ 
+		background-color: #000; 
+		color: #fff; 
+		text-decoration: none; 
+		border-radius: 5px; 
+		padding:  6.5px 70.6px;
+	} 
+
+	#sign-up:hover{ 
+		background-color: #000;
+	} 
+
+	#signup-background { 
+	background-color: green;
+	} 
+
+	#box { 
+	text-align: center;  
+	width: 480px; 
+	background-color: #fff; 
+	padding: 10px; 
+	border-radius: 10px; 
+	margin: 0 auto; 
+	margin-top: 6%; 
+	background-color: #eee;
+
+	} 
+
+	#create-account { 
+		width: 400px; 
+		margin: 0 auto; 
+	}  
+
+	#create-account h1 { 
+		float: center; 
+		color: #000;  
+	}
+
+	#create-account input { 
+		width: 400px; 
+		height: 35px; 
+		padding: 5px; 
+		border-radius: 5px; 
+		border: none; 
+		margin-top: 10px;  
+		font-size: 15px;
+	} 
+
+	#submit-bttn { 
+		background-color: #000; 
+		color: #fff;   
+		margin-left: 5px; 
+	} 
+
+	#submit-bttn:hover{ 
+		background-color: #000; 
+		cursor: pointer;
+
+	}
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
