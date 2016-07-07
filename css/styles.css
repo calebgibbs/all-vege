@@ -24,7 +24,11 @@ body, html {
 		padding: 20px; 
 		text-decoration: none; 
 		color: #000;
-	} 
+	}  
+
+	#search { 
+		display: float;
+	}
 
 	#nav-text a:hover { 
 		color: #fff;
@@ -38,8 +42,10 @@ body, html {
 	#search-bar { 
 		cursor: text; 
 		display: none; 
+	} 
 
-
+	#search-bar input { 
+		font-size: 20px;
 	}
 
 	#account { 
@@ -55,9 +61,10 @@ body, html {
 		width: 250px; 
 		background-color: #eee; 
 		margin: 0 auto; 
-		float: right;  
+		left: 81%;  
 		padding-bottom: 15px; 
-		display: none 
+		display: none; 
+		position:absolute; 
 	}  
 
 	#login-content { 
@@ -105,6 +112,113 @@ body, html {
 
 	#signup-background { 
 	background-color: green;
+	}   
+
+	#content { 
+		margin: 0 auto;
+	}
+
+	#left-box {
+		height: 400px;  
+		width: 45%;  
+		display: inline-block; 
+		padding: 10px; 
+		margin: 10px; 
+		margin-left: 22px;
+		background-color: green;
+		vertical-align: top
+
+	}
+
+	#d1 { 
+		/*height: 400px;  
+		width: 45%;  
+		display: inline-block; 
+		padding: 10px; 
+		margin: 10px;
+		background-color: green;*/
+	}  
+
+	#right-box {  
+		height: 420px;  
+		width: 49%;  
+		display: inline-block; 
+		margin: 10px;
+		vertical-align: top
+
+	}
+
+	#d2 { 
+		height: 200px; 
+		width: 46%; 
+		display: inline-block; 
+		background-color: green; 
+		margin: 10px; 
+		margin-top: 0px; 
+		margin-left: 0;
+	} 
+
+	#d3 {  
+		height: 200px; 
+		width: 46%; 
+		display: inline-block; 
+		background-color: green; 
+		margin: 10px; 
+		margin-top: 0;
+		
+
+	} 
+
+	#d4 {  
+		height: 200px; 
+		width: 46%; 
+		display: inline-block; 
+		background-color: green; 
+		margin: 10px; 
+		margin-left: 0; 
+		
+
+	} 
+
+	#d5 {   
+		height: 200px; 
+		width: 46%; 
+		display: inline-block; 
+		background-color: green;
+		margin: 10px;
+		
+
+	} 
+
+	#d6 {  
+		height: 200px;  
+		width: 29%;  
+		display: inline-block; 
+		padding: 10px; 
+		margin: 10px;
+		margin-left: 22px;
+		background-color: green;
+
+	} 
+
+	#d7 {  
+		height: 200px;  
+		width: 29%;  
+		display: inline-block; 
+		padding: 10px; 
+		margin: 10px;
+		background-color: green;
+
+	} 
+
+	#d8 {  
+		height: 200px;  
+		width: 29%;  
+		display: inline-block; 
+		padding: 10px; 
+		margin: 10px;
+		background-color: green;
+
 	} 
 
 	#box { 

@@ -5,7 +5,7 @@ $(document).ready(function(){
 	});  
 
 	$('#account').click(function(){
-		$('#login').toggle({"display" : "block"});
+		$('#login').slideToggle({"display" : "block"});
 	});
 	
 });

@@ -28,12 +28,14 @@
 					</div> 
 					<div id="login"> 
 						<div id="login-content">
-							<form>
+							<form action="#" method="post" id="login-form">
 								<div>
-									<input type="email" placeholder="Email">
+									<input type="email" placeholder="Email"> 
+									<span id="email-message"></span>
 								</div>
 								<div>
-									<input type="password" placeholder="Password">
+									<input type="password" placeholder="Password"> 
+									<span id="pwd-message"></span>
 								</div> 
 								<div>
 									<input id="login-button" type="submit" name="login" value="Log in">
@@ -47,8 +49,21 @@
 						</div>
 						</div>
 				</nav>
-				<div> 
-
+				<div id="content"> 
+					<div id= "left-box">
+						<div id="d1">1</div> 
+					</div>
+					<div id="right-box">	
+						<div id="d2">2</div> 
+						<div id="d3">3</div>
+						<div id="d4">4</div> 
+						<div id="d5">5</div>
+					</div> 
+					<div id="bottom-box">
+						<div id="d6">6</div> 
+						<div id="d7">7</div> 
+						<div id="d8">8</div>
+					</div>
 				</div> 
 				<footer>
 					<p>Copyright &copy;</p>
@@ -57,5 +72,6 @@
 			<script src="https://use.fontawesome.com/228e8d7980.js"></script>  
 			<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 			<script type="text/javascript" src="js/animation.js"></script> 
+			<script type="text/javascript" src="js/login-validation.js"></script> 
 		</body>
 	</html>
