@@ -10,7 +10,7 @@ body, html {
 		width: 100%; 
 		background-color: #eee; 
 		height: 70px; 
-		border-top: 5px solid #000; 
+		border-top: 5px solid #66ee66; 
 		
 	}  
 
@@ -118,27 +118,23 @@ body, html {
 		margin: 0 auto;
 	}
 
-	#left-box {
-		height: 400px;  
+	#d1 {
+		height: 420px;  
 		width: 45%;  
 		display: inline-block; 
-		padding: 10px; 
+		padding: 0; 
 		margin: 10px; 
 		margin-left: 22px;
 		background-color: green;
 		vertical-align: top
 
+	} 
+
+	#d1 img { 
+		height: 420px; 
+		width: 100%;
 	}
-
-	#d1 { 
-		/*height: 400px;  
-		width: 45%;  
-		display: inline-block; 
-		padding: 10px; 
-		margin: 10px;
-		background-color: green;*/
-	}  
-
+  
 	#right-box {  
 		height: 420px;  
 		width: 49%;  
@@ -156,7 +152,13 @@ body, html {
 		margin: 10px; 
 		margin-top: 0px; 
 		margin-left: 0;
-	} 
+	}  
+
+	#d2 img { 
+		height: 200px; 
+		width: 100%; 
+		display: inline-block;
+	}
 
 	#d3 {  
 		height: 200px; 
@@ -165,9 +167,13 @@ body, html {
 		background-color: green; 
 		margin: 10px; 
 		margin-top: 0;
-		
+	}   
 
-	} 
+	#d3 img { 
+		height: 200px; 
+		width: 100%; 
+		display: inline-block;
+	}
 
 	#d4 {  
 		height: 200px; 
@@ -175,10 +181,14 @@ body, html {
 		display: inline-block; 
 		background-color: green; 
 		margin: 10px; 
-		margin-left: 0; 
-		
+		margin-left: 0; 	
+	}  
 
-	} 
+	#d4 img { 
+		height: 200px; 
+		width: 100%; 
+		display: inline-block;
+	}
 
 	#d5 {   
 		height: 200px; 
@@ -186,40 +196,56 @@ body, html {
 		display: inline-block; 
 		background-color: green;
 		margin: 10px;
-		
+	}  
 
-	} 
+	#d5 img { 
+		height: 200px; 
+		width: 100%; 
+		display: inline-block;
+	}
 
 	#d6 {  
 		height: 200px;  
 		width: 29%;  
-		display: inline-block; 
-		padding: 10px; 
+		display: inline-block;  
 		margin: 10px;
 		margin-left: 22px;
 		background-color: green;
+	}  
 
-	} 
+	#d6 img { 
+		height: 200px; 
+		width: 100%; 
+		display: inline-block;
+	}
 
 	#d7 {  
 		height: 200px;  
 		width: 29%;  
-		display: inline-block; 
-		padding: 10px; 
+		display: inline-block;  
 		margin: 10px;
 		background-color: green;
+	}  
 
-	} 
+	#d7 img { 
+		height: 200px; 
+		width: 100%; 
+		display: inline-block;
+	}
 
 	#d8 {  
 		height: 200px;  
 		width: 29%;  
-		display: inline-block; 
-		padding: 10px; 
+		display: inline-block;  
 		margin: 10px;
 		background-color: green;
+	}  
 
-	} 
+	#d8 img { 
+		height: 200px; 
+		width: 100%; 
+		display: inline-block;
+	}
 
 	#box { 
 	text-align: center;  
