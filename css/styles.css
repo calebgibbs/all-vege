@@ -119,20 +119,19 @@ body, html {
 	}
 
 	#d1 {
-		height: 420px;  
 		width: 45%;  
 		display: inline-block; 
 		padding: 0; 
 		margin: 10px; 
 		margin-left: 22px;
-		background-color: green;
 		vertical-align: top
 
 	} 
 
 	#d1 img { 
 		height: 420px; 
-		width: 100%;
+		width: 100%; 
+		background-color: black;
 	}
   
 	#right-box {  
@@ -148,7 +147,7 @@ body, html {
 		height: 200px; 
 		width: 46%; 
 		display: inline-block; 
-		background-color: green; 
+		 
 		margin: 10px; 
 		margin-top: 0px; 
 		margin-left: 0;
@@ -164,7 +163,7 @@ body, html {
 		height: 200px; 
 		width: 46%; 
 		display: inline-block; 
-		background-color: green; 
+		 
 		margin: 10px; 
 		margin-top: 0;
 	}   
@@ -179,7 +178,7 @@ body, html {
 		height: 200px; 
 		width: 46%; 
 		display: inline-block; 
-		background-color: green; 
+		 
 		margin: 10px; 
 		margin-left: 0; 	
 	}  
@@ -194,7 +193,7 @@ body, html {
 		height: 200px; 
 		width: 46%; 
 		display: inline-block; 
-		background-color: green;
+		
 		margin: 10px;
 	}  
 
@@ -210,7 +209,7 @@ body, html {
 		display: inline-block;  
 		margin: 10px;
 		margin-left: 22px;
-		background-color: green;
+		
 	}  
 
 	#d6 img { 
@@ -224,7 +223,6 @@ body, html {
 		width: 29%;  
 		display: inline-block;  
 		margin: 10px;
-		background-color: green;
 	}  
 
 	#d7 img { 
@@ -238,7 +236,7 @@ body, html {
 		width: 29%;  
 		display: inline-block;  
 		margin: 10px;
-		background-color: green;
+		
 	}  
 
 	#d8 img { 
