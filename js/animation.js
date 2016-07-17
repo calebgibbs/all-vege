@@ -5,7 +5,11 @@ $(document).ready(function(){
 	});  
 
 	$('#account').click(function(){
-		$('#login').slideToggle({"display" : "block"});
-	});
-	
+		$('#acc-box').slideToggle({"display" : "block"});
+	}); 
+
+	$('.edit-controller').click(function(){
+		$(this).next('.setting-edit').slideToggle({"display" : "block"});
+	}); 
+
 });

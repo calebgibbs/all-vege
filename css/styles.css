@@ -8,7 +8,7 @@ body, html {
  
 	nav { 
 		width: 100%; 
-		background-color: #eee; 
+		background-color: #eee;
 		height: 70px; 
 		border-top: 5px solid #66ee66; 
 		
@@ -27,7 +27,7 @@ body, html {
 	}  
 
 	#search { 
-		display: float;
+		vertical-align:middle;
 	}
 
 	#nav-text a:hover { 
@@ -49,31 +49,68 @@ body, html {
 	}
 
 	#account { 
-		float: right;  
+		float: right; 
+		display: inline-block; 
+		vertical-align:middle; 
+		margin-top: -15px;
 	}  
 
 	#account:hover { 
 		cursor: pointer; 
 		color: #ffffff;
+	} 
+
+	#account img { 
+		display: inline-block;
+		vertical-align:middle; 
+		padding: 5px;
+	} 
+
+	#acc-name { 
+		display: inline-block;
+		vertical-align:middle;
 	}
 
-	#login { 
-		width: 250px; 
+	#acc-box { 
+		margin-top: 5.5px;
+		width: 250px;  
 		background-color: #eee; 
-		margin: 0 auto; 
-		left: 81%;  
-		padding-bottom: 15px; 
+		left: 80.5%;  
+		padding-bottom: 10px; 
 		display: none; 
 		position:absolute; 
-	}  
+	}   
 
-	#login-content { 
+	#acc-box ul { 
+		padding: 0; 
+		margin: 0;
+	}
+
+	#acc-box-content { 
 		width: 200px; 
 		margin: 0 auto; 
 		padding: 5px; 
+	}  
+
+	#acc-box li {
+		list-style-type: none; 
+		font-size: 15px; 
+		padding-top: 10px; 
+		border-bottom: 1px solid #bfbfbf; 
+		padding: 10px;  
 	} 
 
-	#login input { 
+	#acc-box li:hover { 
+		background-color: #f2f2f2; 
+	}
+
+	#acc-box ul a { 
+		text-decoration: none;  
+		color: #000;
+	} 
+
+
+	#acc-box input { 
 		margin-top: 10px; 
 		border-radius: 5px; 
 		height: 30px; 
@@ -131,7 +168,6 @@ body, html {
 	#d1 img { 
 		height: 420px; 
 		width: 100%; 
-		background-color: black;
 	}
   
 	#right-box {  
@@ -287,10 +323,91 @@ body, html {
 		background-color: #000; 
 		cursor: pointer;
 
+	} 
+
+	#account-overview { 
+		width: 90%; 
+		margin: 0 auto;  
+		background-color: #fff; 
+		border-bottom: 1px solid #999; 
+	} 
+
+	#account-overview img { 
+		width: 250px;
+		margin: 0 auto;  
+		padding: 15px;
+		padding-top: 25px; 
+		text-align: center; 
+		display: block;
+
+	}  
+
+	#account-overview span { 
+		width: 250px;
+		margin: 0 auto;  
+		padding: 15px;
+		padding-top: 25px; 
+		text-align: center; 
+		display: block; 
+		font-size: 25px; 
+		padding-bottom: 10px; 
+		
+	} 
+
+	#account-settings { 
+		width: 85%; 
+		margin:0 auto; 
+		margin-top: 15px; 
+		margin-bottom: 30px;
+	}  
+
+	.setting-controller { 
+		background-color: #fff; 
+		padding-top: 5px; 
+		padding-bottom: 5px; 
+		border-bottom: 1px solid #999;
+	} 
+
+	.setting-controller:hover { 
+		background-color: #f6f7f9; 
+		cursor: pointer;
 	}
-} 
+
+	.setting-title { 
+		width: 30%; 
+		display:inline-block;
+	} 
+
+	.edit-controller { 
+		float: right; 
+		color: blue; 
+
+	} 
+
+	.edit-controller:hover { 
+		text-decoration: underline;
+	} 
+
+	.setting-edit { 
+		padding-top: 5px; 
+		padding-bottom: 5px; 
+		display: none;
+	}  
+
+	.space { 
+		margin-left: 30%;
+	}
 
 
+
+	#pwd-setting label {  
+		width: 200px; 
+		display: inline-block; 
+		padding-top: 5px;
+
+	}
+
+}
 
 
 
