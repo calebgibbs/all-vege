@@ -1,0 +1,527 @@
+body, html { 
+	padding: 0; 
+	margin: 0; 
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif; 
+}  
+
+nav { 
+	width: 100%; 
+	background-color: #eee;
+	height: 70px; 
+	border-top: 5px solid #66ee66; 
+}  
+
+#nav-text { 
+	vertical-align: middle; 
+	padding: 20px; 
+	font-size: 20px; 
+	color: #fff;
+} 
+
+#nav-text a {
+	padding: 20px; 
+	text-decoration: none; 
+	color: #000;
+}  
+
+#search { 
+	vertical-align:middle; 
+	color: #000; 
+	position: absolute; 
+	display: inline-block;
+}
+
+#nav-text a:hover { 
+	color: #fff;
+} 
+
+#search-control:hover{ 
+	color: #fff; 
+	cursor: pointer;
+} 
+
+#search-bar { 
+	cursor: text; 
+	vertical-align:middle;
+	display: none;  
+	margin-top: -27px; 
+	/*display: inline-block;*/
+} 
+
+#search-bar input { 
+	font-size: 20px;
+}
+
+#account { 
+	float: right; 
+	display: inline-block; 
+	vertical-align:middle; 
+	margin-top: -15px;
+}  
+
+#v-account { 
+	float: right; 
+	display: inline-block; 
+	vertical-align:middle; 
+	padding-right: 50px; 
+}  
+
+#v-account:hover { 
+	cursor: pointer; 
+	color: #ffffff;
+} 
+
+.clicked { 
+	color: #000;
+}
+
+.mod-nav { 
+	margin-top: -15px;
+}  
+  
+#account:hover { 
+	cursor: pointer; 
+	color: #fff;
+} 
+
+#account img { 
+	display: inline-block;
+	vertical-align:middle; 
+	padding: 5px;
+} 
+
+#acc-name { 
+	display: inline-block;
+	vertical-align:middle; 
+	/*color: green;*/
+} 
+
+.user-col { 
+	color: orange !important;
+}
+
+#acc-box { 
+	margin-top: 5.5px;
+	width: 250px;  
+	background-color: #eee; 
+	right: 0;    
+	display: none; 
+	position:absolute; 
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+}  
+
+.v-acc-box { 
+	padding-bottom: 10px;
+}  
+
+#acc-box ul { 
+	padding: 0; 
+	margin: 0;
+}
+
+#acc-box-content { 
+	width: 200px; 
+	margin: 0 auto; 
+	padding: 5px; 
+}  
+
+#acc-box li {
+	list-style-type: none; 
+	font-size: 15px; 
+	padding-top: 10px; 
+	border-bottom: 1px solid #bfbfbf; 
+	padding: 10px;  
+}  
+
+#acc-box li:last-of-type { 
+	border-bottom: 0;
+}
+
+#acc-box li:hover { 
+	background-color: #f2f2f2; 
+}
+
+#acc-box ul a { 
+	text-decoration: none;  
+	color: #000;
+} 
+
+
+#acc-box input { 
+	margin-top: 10px; 
+	border-radius: 5px; 
+	height: 30px; 
+	width: 200px; 
+	margin-left: 0; 
+	border: none; 
+	font-size: 15px; 
+	padding: 5px;
+} 
+
+#login-button { 
+	background-color: #000; 
+	color: #fff; 
+} 
+
+#login-button:hover{ 
+	cursor: pointer; 
+	background-color: #000;
+} 
+
+#log-bttm { 
+	margin-top: 10px; 
+} 
+
+#sign-up{ 
+	background-color: #000; 
+	color: #fff; 
+	text-decoration: none; 
+	border-radius: 5px; 
+	padding:  6.5px 70.6px;
+} 
+
+#sign-up:hover{ 
+	background-color: #000;
+} 
+
+#content { 
+	margin: 0 auto;
+}
+
+#d1 {
+	width: 45%;  
+	display: inline-block; 
+	padding: 0; 
+	margin: 10px; 
+	margin-left: 22px;
+	vertical-align: top
+} 
+
+#d1 img { 
+	height: 420px; 
+	width: 100%; 
+}
+  
+#right-box {  
+	height: 420px;  
+	width: 49%;  
+	display: inline-block; 
+	margin: 10px;
+	vertical-align: top
+}
+
+#d2 { 
+	height: 200px; 
+	width: 46%; 
+	display: inline-block; 	 
+	margin: 10px; 
+	margin-top: 0px; 
+	margin-left: 0;
+}  
+
+#d2 img { 
+	height: 200px; 
+	width: 100%; 
+	display: inline-block;
+}
+
+#d3 {  
+	height: 200px; 
+	width: 46%; 
+	display: inline-block; 	 
+	margin: 10px; 
+	margin-top: 0;
+}   
+
+#d3 img { 
+	height: 200px; 
+	width: 100%; 
+	display: inline-block;
+}
+
+#d4 {  
+	height: 200px; 
+	width: 46%; 
+	display: inline-block; 	 
+	margin: 10px; 
+	margin-left: 0; 	
+}  
+
+#d4 img { 
+	height: 200px; 
+	width: 100%; 
+	display: inline-block;
+}
+
+#d5 {   
+	height: 200px; 
+	width: 46%; 
+	display: inline-block; 	
+	margin: 10px;
+}  
+
+#d5 img { 
+	height: 200px; 
+	width: 100%; 
+	display: inline-block;
+}
+
+#d6 {  
+	height: 200px;  
+	width: 29%;  
+	display: inline-block;  
+	margin: 10px;
+	margin-left: 22px;	
+}  
+
+#d6 img { 
+	height: 200px; 
+	width: 100%; 
+	display: inline-block;
+}
+
+#d7 {  
+	height: 200px;  
+	width: 29%;  
+	display: inline-block;  
+	margin: 10px;
+}  
+
+#d7 img { 
+	height: 200px; 
+	width: 100%; 
+	display: inline-block;
+}
+
+#d8 {  
+	height: 200px;  
+	width: 29%;  
+	display: inline-block;  
+	margin: 10px;
+}  
+
+#d8 img { 
+	height: 200px; 
+	width: 100%; 
+	display: inline-block;
+}
+
+#signup-background { 
+	background-image: url('veg-bg.jpg');
+	background-size: contain;
+	background-size: cover; 
+} 
+
+
+
+#box { 
+	text-align: center;  
+	width: 480px; 
+	background-color: #fff; 
+	padding: 10px; 
+	border-radius: 10px; 
+	margin: 0 auto; 
+	margin-top: 6%; 
+	background-color: #eee; 
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+} 
+
+#create-account { 
+	width: 400px; 
+	margin: 0 auto; 
+}  
+
+#create-account h1 { 
+	float: center; 
+	color: #000;  
+}
+
+#create-account input { 
+	width: 400px; 
+	height: 35px; 
+	padding: 5px; 
+	border-radius: 5px; 
+	border: none; 
+	margin-top: 10px;  
+	font-size: 15px;
+} 
+
+#submit-bttn { 
+	background-color: #000; 
+	color: #fff;   
+	margin-left: 5px; 
+} 
+
+#submit-bttn:hover{ 
+	background-color: #000; 
+	cursor: pointer;
+} 
+
+#account-overview { 
+	width: 90%; 
+	margin: 0 auto;  
+	background-color: #fff; 
+	border-bottom: 1px solid #999; 
+} 
+
+#account-overview img { 
+	width: 250px;
+	margin: 0 auto;  
+	padding: 15px;
+	padding-top: 25px; 
+	text-align: center; 
+	display: block;
+}  
+
+#account-overview span { 
+	width: 250px;
+	margin: 0 auto;  
+	padding: 15px;
+	padding-top: 25px; 
+	text-align: center; 
+	display: block; 
+	font-size: 25px; 
+	padding-bottom: 10px; 
+} 
+
+#account-settings { 
+	width: 85%; 
+	margin:0 auto; 
+	margin-top: 15px; 
+	margin-bottom: 30px;
+}  
+
+#account-settings h2 { 
+	width: 100%; 
+	border-bottom: 1px solid #999;  
+	font-size: 15px; 
+	font-weight: normal; 
+	padding-top: 5px; 
+	padding-bottom: 5px; 
+	margin-top: 0; 
+	margin-bottom: 0;
+}  
+
+#account-settings h2 span:first-of-type { 
+	width: 30%; 
+	display: inline-block;
+}  
+
+#account-settings h2 span:nth-of-type(2):not(:last-of-type) { 
+	color: #999; 
+	font-style: italic;
+} 
+
+.edit { 
+	float: right; 
+	color: #0000ff; 
+	display: inline-block;
+}  
+
+.edit:hover { 
+	text-decoration: underline;
+} 
+
+#account-settings h2:hover { 
+	cursor: pointer; 
+	background-color: #f6f7f9;
+}
+
+.content { 
+	display: none;
+} 
+
+#content { 
+	width: 95%; 
+	margin: 0 auto; 
+	/*background-color: green;*/  
+	margin-top: 10px;
+}
+
+#recipe-image { 
+	display: inline-block; 
+	width: 40%;
+} 
+
+#recipe-description { 
+	display: inline-block; 
+	width: 58%; 
+	background-color: red;
+} 
+
+/*Stars import*/
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+} 
+
+input.star { 
+	display: none; 
+} 
+
+label.star {
+  float: right;
+  padding: 5px;
+  font-size: 15px;
+  color: #444;
+  transition: all .2s;
+} 
+
+input.star:checked ~ label.star:before {
+  content: '\f005';
+  color: #FD4;
+  transition: all .25s;
+} 
+
+input.star-5:checked ~ label.star:before {
+  color: #FE7;
+  text-shadow: 0 0 20px #952;
+} 
+
+input.star-1:checked ~ label.star:before { 
+	color: #F62; 
+} 
+
+label.star:hover { 
+	transform: rotate(-15deg) scale(1.3);  
+	cursor: pointer;
+} 
+
+label.star:before {
+  content: '\f006';
+  font-family: FontAwesome;
+} 
+
+/*stars end*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
