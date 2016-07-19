@@ -4,12 +4,20 @@ $(document).ready(function(){
 		$('#search-bar').toggle({"display" : "block"}); 
 	});  
 
+	$('.clicked').click(function(){
+		$(this).toggleClass('clicked');
+	});
+
 	$('#account').click(function(){
 		$('#acc-box').slideToggle({"display" : "block"});
-	}); 
+	});
 
-	$('.edit-controller').click(function(){
-		$(this).next('.setting-edit').slideToggle({"display" : "block"});
-	}); 
+	$('#v-account').click(function(){
+		$('#acc-box').slideToggle({"display" : "block"});
+	});   
+
+	$('.controller').click(function(){
+		$(this).next('.content').slideToggle({"display" : "block"});
+	});
 
 });

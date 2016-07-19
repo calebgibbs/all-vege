@@ -6,8 +6,7 @@
 			<meta name="description" content="View veretarian recipes"> 		
 			<link rel="stylesheet" href="css/styles.css">
 		</head>
-		<body>
-			<headder> 
+		<body> 
 				<nav>
 					<div id="nav-text">
 						<a href="index.html">
@@ -22,8 +21,8 @@
 							<span id="search-bar"><input type="text" name="search" placeholder="Search" id="search"></span>
 						</span>
 						
-						<span class="user-col"id="account">
-							<img src="http://placehold.it/40x40"><span  id="acc-name">User</span>
+						<span id="account">
+							<img src="http://placehold.it/40x40"> <span id="acc-name">User</span>
 						</span> 
 					</div> 
 					<div id="acc-box"> 
@@ -36,79 +35,67 @@
 					</div>
 				</nav> 
 
-				<div id="page"> 
+				<div id="page">  
 					
-					<div id="account-overview"> 
-						<img src="http://placehold.it/250x250"> 
-						<span id="users-name">User's Name</span>
-					</div>  
+					<div class="setting-controller">
+							<span class="setting-title">Change Profile Picture</span> 
+							<span class="edit-controller">Edit</span>
+						</div> 
+						<div class="setting-edit">
+							change profile
+						</div> 
 
-					<div id="account-settings">  
-						
-						<h2 class="controller">
-							<span>Change profile picture</span><span class="edit">Edit</span>
-						</h2> 
-						<p class="content">Change profile</p>	 
-
-						<h2 class="controller">
-							<span>First Name</span><span>First Name</span><span class="edit">Edit</span>
-						</h2> 
-						<p class="content">
+						<div class="setting-controller"> 
+							<span class="setting-title">First Name</span> 
+							<span id="currentFirstName">User's First name</span> 
+							<span class="edit-controller">Edit</span>
+						</div> 
+						<div class="setting-edit space"> 
 							<input type="text" placeholder="Edit First Name">  
 							<input type="submit" value="Save">
-						</p> 
+						</div> 
 
-						<h2 class="controller">
-							<span>Last Name</span><span>Last Name</span><span class="edit">Edit</span>
-						</h2> 
-						<p class="content">
+						<div class="setting-controller"> 
+							<span class="setting-title">Last Name</span> 
+							<span id="currentLastName">User's Last name</span> 
+							<span class="edit-controller">Edit</span>
+						</div> 
+						<div class="setting-edit space"> 
 							<input type="text" placeholder="Edit Last Name">  
 							<input type="submit" value="Save">
-						</p> 
+						</div> 
 
-						<h2 class="controller">
-							<span>Email</span><span>users email</span><span class="edit">Edit</span>
-						</h2> 
-						<p class="content">
-							<input type="text" placeholder="change email">  
+						<div class="setting-controller"> 
+							<span class="setting-title">Email</span> 
+							<span id="currentEmail">User's Email</span> 
+							<span class="edit-controller">Edit</span>
+						</div> 
+						<div class="setting-edit space"> 
+							<input type="text" placeholder="Edit Email Address">  
 							<input type="submit" value="Save">
-						</p>
-
-						<h2 class="controller">
-							<span>Password</span><span class="edit">Edit</span>
-						</h2> 
-						<p class="content">
-							
+						</div> 
+						<div class="setting-controller"> 
+							<span class="setting-title">Change password</span>  
+							<span class="edit-controller">Edit</span>
+						</div> 
+						<div id="pwd-setting" class="setting-edit">
+							<div>
 							<label>Current Password:</label> 
 							<input type="password" placeholder="Current password"> 
-							 
-							
+							</div> 
+							<div>
 							<label>New Password:</label> 
 							<input type="password" placeholder="Current password">  
-							
-							
+							</div>
+							<div>
 							<label>Re-type new Password:</label> 
 							<input type="password" placeholder="Current password"> 
-							
+							</div>
 							<input type="submit" value="Save">
-						</p> 
-
-						<h2 class="controller"> 
-							<span>Deactivate account</span><span class="edit">Edit</span>
-						</h2> 
-						<p class="content">
-							<span>I wish to deactivate my account <input type="checkbox"></span> 
-							<span>Please enter your password to confirm: </span>
-							<input type="password" placeholder="Password"> 
-							<input type="submit" value="Confirm">
-							 
-
-						</p>
-					</div> 
-						
-						
-
-					</div>  
+						</div>
+					
+					
+				</div> 
 			<script src="https://use.fontawesome.com/228e8d7980.js"></script>  
 			<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 			<script type="text/javascript" src="js/animation.js"></script> 
