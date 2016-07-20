@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	$('#search-control').click(function(){
 		$('#search-s').toggle({"display" : "none"}); 
-		$('#search-bar').toggle({"display" : "block"}); 
+		$('#search-bar').toggle({"display" : "inline-block"}); 
 	});  
 
 	$('.clicked').click(function(){

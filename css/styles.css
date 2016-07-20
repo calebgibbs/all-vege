@@ -26,7 +26,9 @@ nav {
 
 #search { 
 	vertical-align:middle; 
-	color: #000;
+	color: #000; 
+	position: absolute; 
+	display: inline-block;
 }
 
 #nav-text a:hover { 
@@ -40,7 +42,10 @@ nav {
 
 #search-bar { 
 	cursor: text; 
-	display: none; 
+	vertical-align:middle;
+	display: none;  
+	margin-top: -27px; 
+	/*display: inline-block;*/
 } 
 
 #search-bar input { 
@@ -179,10 +184,6 @@ nav {
 	background-color: #000;
 } 
 
-#signup-background { 
-	background-color: green;
-}   
-
 #content { 
 	margin: 0 auto;
 }
@@ -305,6 +306,14 @@ nav {
 	display: inline-block;
 }
 
+#signup-background { 
+	background-image: url('veg-bg.jpg');
+	background-size: contain;
+	background-size: cover; 
+} 
+
+
+
 #box { 
 	text-align: center;  
 	width: 480px; 
@@ -314,7 +323,7 @@ nav {
 	margin: 0 auto; 
 	margin-top: 6%; 
 	background-color: #eee; 
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);#
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
 } 
 
 #create-account { 
@@ -425,7 +434,7 @@ nav {
 #content { 
 	width: 95%; 
 	margin: 0 auto; 
-	background-color: green;  
+	/*background-color: green;*/  
 	margin-top: 10px;
 }
 
