@@ -6,7 +6,9 @@ $(document).ready(function(){
 
 	$('.clicked').click(function(){
 		$(this).toggleClass('clicked');
-	});
+	}); 
+
+	
 
 	$('#account').click(function(){
 		$('#acc-box').slideToggle({"display" : "block"});
