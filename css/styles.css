@@ -532,7 +532,10 @@ label.star:before {
 /*stars end*/ 
 
 #recipe-page{ 
-
+	width: 95%; 
+	/*background-color: green; */
+	margin: 0 auto; 
+	padding: 10px; 
 }
 
 

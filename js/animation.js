@@ -6,9 +6,7 @@ $(document).ready(function(){
 
 	$('.clicked').click(function(){
 		$(this).toggleClass('clicked');
-	}); 
-
-	
+	}); 	
 
 	$('#account').click(function(){
 		$('#acc-box').slideToggle({"display" : "block"});
@@ -21,5 +19,4 @@ $(document).ready(function(){
 	$('.controller').click(function(){
 		$(this).next('.content').slideToggle({"display" : "block"});
 	});
-
 });
