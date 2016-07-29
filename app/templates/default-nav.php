@@ -1,3 +1,4 @@
+<?php $this -> layout('master'); ?>
 <nav>
 	<div id="nav-text">
 		<a href="index.html">
@@ -18,7 +19,7 @@
 	</div> 
 	<div class="v-acc-box" id="acc-box"> 
 		<div id="acc-box-content">
-				<form action="#" method="post" id="login-form">
+				<form action="index.php?page=home" method="post" id="login-form">
 					<div>
 						<input type="email" placeholder="Email"> 
 						<span id="email-message"></span>
@@ -34,7 +35,7 @@
 				<div id="log-bttm">
 					<a href="#">Forgot your password?</a>
 					<p>Don't have an account?</p> 
-					<a id="sign-up" href="signup.html">Sign up!</a> 
+					<a id="sign-up" href="index.php?page=sign-up">Sign up!</a> 
 				</div>
 		</div>
 	</div>

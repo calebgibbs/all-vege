@@ -1,3 +1,4 @@
+<?php $this -> layout('master'); ?>
 <div id="page"> 
 	<div id="account-overview"> 
 		<img src="http://placehold.it/250x250"> 

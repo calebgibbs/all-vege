@@ -1,9 +1,10 @@
+<?php $this -> layout('master'); ?>
 <body>
 	<div id="signup-background"></div>
 		<div id="box"> 	
 			<div id="create-account"> 
 				<h1>Create an account</h1> 
-				<form action="#" method="post" id="signin-form">
+				<form action="index.php?page=home" method="post" id="signin-form">
 					<div>
 						<input type="text" id="fname" placeholder="First Name"> 
 						<span id="fname-message"></span>
@@ -29,6 +30,6 @@
 					</div> 
 				</form> 
 				<hr> 
-				<p>Have an account? <a href="index.html">Log in</a></p>
+				<p>Have an account? <a href="index.php?page=home">Log in</a></p>
 			</div>
 		</div>  

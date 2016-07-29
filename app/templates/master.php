@@ -5,7 +5,9 @@
 		<title></title> 								
 		<meta name="description" content=""> 		
 		<link rel="stylesheet" href="css/styles.css">
-	</head>
+	</head> 
+
+	<?= $this->section('content') ?>
 
 
 
