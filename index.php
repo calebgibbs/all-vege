@@ -1,8 +1,6 @@
 <?php 
 
-require 'vendor/autoload.php';  
-
-$plates = new League\Plates\Engine('app/templates'); 
+require 'vendor/autoload.php';   
 
 if ( isset($_GET['page']) ) {
 	$page = $_GET['page'];
@@ -12,7 +10,8 @@ if ( isset($_GET['page']) ) {
 
 switch ($page) {
 	case 'home':
-		echo $plates -> render('home'); 	
+		require 'app/controllers/HomeController.php'; 
+		$controller = new HomeController();	
 	break; 
 
 	case 'sign-up':
@@ -27,5 +26,7 @@ switch ($page) {
 		require 'app/controllers/Error404Controller.php';
 		$controller = new Error404Controller();
 	break;
-}
+} 
+
+$controller -> buildHTML();
 

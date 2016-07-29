@@ -1,4 +1,10 @@
-<?php $this -> layout('master'); ?>
+<?php 
+	$this -> layout('master',[
+		'title'=>'All Vege', 
+		'desc' => 'Browse All Vege vegetarian recipes' 
+
+	]); 
+?>
 <div id="content"> 
 					<div id= "d1"> 
 						<a href="new.html">
