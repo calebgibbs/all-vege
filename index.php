@@ -1,4 +1,4 @@
-<?php 
+<?php  
 
 require 'vendor/autoload.php';   
 
@@ -15,11 +15,24 @@ switch ($page) {
 	break; 
 
 	case 'sign-up':
-		echo $plates -> render('sign-up'); 	
+		require 'app/controllers/SignupController.php'; 
+		$controller = new SignupController();  	
+	break; 
+
+	case 'search':
+		echo $plates -> render('search'); 	
+	break; 
+
+	case 'recipe':
+		echo $plates -> render('recipe'); 	
 	break; 
 
 	case 'account':
 		echo $plates -> render('account'); 	
+	break; 
+
+	case 'settings':
+		echo $plates -> render('settings'); 	
 	break; 
 
 	default:

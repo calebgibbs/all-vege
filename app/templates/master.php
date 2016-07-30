@@ -12,7 +12,7 @@
 
 
 		<footer>
-			<p>Copyright &copy; <?php echo date('Y') ?>  </p>
+			<!-- <p>Copyright &copy; <?php echo date('Y') ?>  </p> -->
 		</footer> 
 		<script src="https://use.fontawesome.com/228e8d7980.js"></script>  
 		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
