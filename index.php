@@ -14,7 +14,7 @@ switch ($page) {
 		$controller = new HomeController($dbc);	 
 	break; 
 
-	case 'sign-up':
+	case 'register':
 		require 'app/controllers/SignupController.php'; 
 		$controller = new SignupController($dbc);  	
 	break; 
