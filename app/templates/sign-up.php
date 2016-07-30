@@ -11,19 +11,19 @@
 				<h1>Create an account</h1> 
 				<form action="#" method="post" id="signup-form">
 					<div>
-						<input type="text" id="fname" name="first-name" placeholder="First Name"> 
+						<input type="text" id="fname" name="first-name" placeholder="First Name" value="<?= isset($_POST['first-name']) ? $_POST['first-name'] : '' ?>"> 
 						<?php if( isset($firstNameMessage) ) : ?>
             			<p> <?= $firstNameMessage ?> </p>
             			<?php endif; ?>
 					</div>
 					<div>
-						<input type="text" id="lname" name="last-name" placeholder="Last Name">
+						<input type="text" id="lname" name="last-name" placeholder="Last Name" value="<?= isset($_POST['last-name']) ? $_POST['last-name'] : '' ?>">
 						<?php if( isset($lastNameMessage) ) : ?>
             			<p> <?= $lastNameMessage ?> </p>
             			<?php endif; ?>
 					</div>
 					<div>
-						<input type="email" id="email" name="email" placeholder="Email"> 
+						<input type="email" id="email" name="email" placeholder="Email" value="<?= isset($_POST['email']) ? $_POST['email'] : '' ?>"> 
 						<?php if( isset($emailMessage) ) : ?>
             			<p> <?= $emailMessage ?> </p>
             			<?php endif; ?>

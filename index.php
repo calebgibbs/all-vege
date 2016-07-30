@@ -1,22 +1,20 @@
 <?php  
 
 require 'vendor/autoload.php';   
+ 
+$page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
-if ( isset($_GET['page']) ) {
-	$page = $_GET['page'];
-} else { 
-	$page = 'home';
-} 
+$dbc = new mysqli('localhost', 'root', '',  'all_vege');
 
 switch ($page) {
 	case 'home':
 		require 'app/controllers/HomeController.php'; 
-		$controller = new HomeController();	
+		$controller = new HomeController($dbc);	
 	break; 
 
 	case 'sign-up':
 		require 'app/controllers/SignupController.php'; 
-		$controller = new SignupController();  	
+		$controller = new SignupController($dbc);  	
 	break; 
 
 	case 'search':
