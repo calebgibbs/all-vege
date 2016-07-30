@@ -9,7 +9,7 @@ class HomeController {
 	//constructor (help build the page) 
 	public function __construct() {
 
-		die('landing controller has been made');
+	
 
 	}
 

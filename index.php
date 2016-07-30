@@ -1,5 +1,7 @@
 <?php  
 
+session_start();
+
 require 'vendor/autoload.php';   
  
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
@@ -9,7 +11,7 @@ $dbc = new mysqli('localhost', 'root', '',  'all_vege');
 switch ($page) {
 	case 'home':
 		require 'app/controllers/HomeController.php'; 
-		$controller = new HomeController($dbc);	
+		$controller = new HomeController($dbc);	 
 	break; 
 
 	case 'sign-up':
