@@ -40,9 +40,9 @@ class LoginController extends PageController {
 			$fileredEmail = $this->dbc->real_escape_string( $_POST['email'] ); 
 
 			//prepear SQL 
-			$sql = "SELECT id, password 
+			$sql = "SELECT id, password, privilege 
 					FROM users
-					WHERE email = '$fileredEmail' "; 
+					WHERE email = '$fileredEmail'  "; 
 
 			//run the query 
 			$result = $this->dbc->query( $sql ); 
@@ -57,6 +57,7 @@ class LoginController extends PageController {
 				if($passwordResult == true) { 
 					
 					$_SESSION['id'] = $userData['id']; 
+					$_SESSION['privilege'] = $userData['privilege'];
 
 					header('Location: index.php');
 
