@@ -4,8 +4,7 @@
 		'desc' => 'Sign in to view your account' 
 	]); 
 ?>
-<body>
-	<div id="signup-background"></div>
+	<div id="login-background"></div>
 	<div id="box"> 	
 		<div id="create-account"> 
 			<h1>Log in</h1> 

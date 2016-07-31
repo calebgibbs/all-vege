@@ -1,4 +1,11 @@
-<?php $this -> layout('master'); ?>
+<?php 
+	$this -> layout('master',[
+		'title'=>'Account', 
+		'desc' => 'view and edit your account information' 
+
+	]); 
+?> 
+<?= $this->insert('nav') ?>
 <div id="page"> 
 	<div id="account-overview"> 
 		<img src="http://placehold.it/250x250"> 

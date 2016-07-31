@@ -25,8 +25,6 @@ switch ($page) {
 		$controller = new LoginController($dbc);  	
 	break;  
 
-
-
 	case 'search':
 		echo $plates -> render('search'); 	
 	break; 
@@ -36,7 +34,8 @@ switch ($page) {
 	break; 
 
 	case 'account':
-		echo $plates -> render('account'); 	
+		require 'app/controllers/AccountController.php'; 
+		$controller = new AccountController($dbc); 	
 	break; 
 
 	case 'settings':

@@ -7,7 +7,9 @@ class LoginController extends PageController {
 		parent::__construct(); 
 
 		//save the database connection
-		$this->dbc = $dbc; 
+		$this->dbc = $dbc;  
+
+		$this->mustBeLoggedOut();
 
 		//if the log in form has been submitted  
 		if( isset($_POST['login']) ) { 

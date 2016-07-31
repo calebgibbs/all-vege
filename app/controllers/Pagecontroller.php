@@ -34,7 +34,7 @@ abstract class PageController {
 		// If you are not logged in
 		if( isset($_SESSION['id']) ) {
 			// Redirect the user to the login page
-			header('Location: index.php?page=stream');
+			header('Location: index.php');
 			die();
 		}
 

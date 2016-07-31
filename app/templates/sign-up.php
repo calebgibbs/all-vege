@@ -4,7 +4,6 @@
 		'desc' => 'Create an account' 
 	]); 
 ?>
-<body>
 	<div id="signup-background"></div>
 		<div id="box"> 	
 			<div id="create-account"> 

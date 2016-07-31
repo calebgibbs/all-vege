@@ -1,16 +1,17 @@
 <?php  
 
-class SignupController { 
+class SignupController extends PageController{ 
 
 	private $firstNameMessage;
 	private $lastNameMessage;
 	private $emailMessage; 
 	private $passwordMessage; 
-	private $dbc; 
   
 	public function __construct($dbc) { 
 
-		$this->dbc = $dbc;
+		$this->dbc = $dbc; 
+
+		$this->mustBeLoggedOut();
 
 		if ( isset($_POST['new-account']) ) {
 			$this->validateRegistrationForm();
