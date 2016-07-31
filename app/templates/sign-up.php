@@ -43,6 +43,6 @@
 					</div> 
 				</form> 
 				<hr> 
-				<p>Have an account? <a href="index.php?page=home">Log in</a></p>
+				<p>Have an account? <a href="index.php?page=login">Log in</a></p>
 			</div>
 		</div>  

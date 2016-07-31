@@ -21,36 +21,26 @@
 			<li><a href="index.php?page=logout"><i class="fa fa-sign-out"></i> Log out</a></li>
 			<li><a href="account.html"><i class="fa fa-user"></i> My Account</a></li>
 	<?php if($_SESSION['privilege'] == 'admin'): ?>					
+			
 			<li><a href="#"><i class="fa fa-cog"></i> Site Maintenance</a></li> 
 			<li><a href="#"><i class="fa fa-info-circle"></i> Help</a></li> 
 		</ul> 
+
 	<?php endif; ?> 
 		<?php else: ?> 
 		<span id="v-account" class="clicked">
-			<i class="fa fa-user" aria-hidden="true"></i> Log in
+			<i class="fa fa-user" aria-hidden="true"></i> <span class="smallT" >Log in/Sign up</span>
 		</span> 
 	</div> 
 	<div class="v-acc-box" id="acc-box"> 
 		<div id="acc-box-content">
-			<form action="#" method="post" id="login-form">
-				<div>
-					<input type="email" placeholder="Email"> 
-					<span id="email-message"></span>
-				</div>
-				<div>
-					<input type="password" placeholder="Password"> 
-					<span id="pwd-message"></span>
-				</div> 
-				<div>
-					<input id="login-button" type="submit" name="login" value="Log in">
-				</div>
-			</form> 
-							
-		<div id="log-bttm">
-			<a href="#">Forgot your password?</a>
-			<p>Don't have an account?</p> 
-			<a id="sign-up" href="signup.html">Sign up!</a> 
-		</div>
+			<div id="log-bttm">
+						
+						<p>Have an account?</p> 
+						<a id="sign-up" href="index.php?page=login">Log in</a>
+						<p>Don't have an account?</p> 
+						<a id="sign-up" href="index.php?page=register">Sign up</a> 
+					</div>
 		</div>
 	</div> 
 	<?php ; ?>

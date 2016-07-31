@@ -2,7 +2,8 @@
 
 session_start();
 
-require 'vendor/autoload.php';   
+require 'vendor/autoload.php';
+require 'app/controllers/PageController.php';   
  
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
@@ -18,6 +19,13 @@ switch ($page) {
 		require 'app/controllers/SignupController.php'; 
 		$controller = new SignupController($dbc);  	
 	break; 
+
+	case 'login':
+		require 'app/controllers/LoginController.php'; 
+		$controller = new LoginController($dbc);  	
+	break;  
+
+
 
 	case 'search':
 		echo $plates -> render('search'); 	
