@@ -97,6 +97,7 @@ class SignupController {
 			$this->dbc->query($sql);  
 
 			$_SESSION['id'] = $this->dbc->insert_id;
+			$_SESSION['privilege'] = 'user';
 
 			header('Location: index.php?page=home');
 		}

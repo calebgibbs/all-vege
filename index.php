@@ -35,6 +35,13 @@ switch ($page) {
 		echo $plates -> render('settings'); 	
 	break; 
 
+	case 'logout':
+		unset($_SESSION['id']);
+		unset($_SESSION['privilege']);
+		header('Location: index.php');
+		
+	break; 
+
 	default:
 		require 'app/controllers/Error404Controller.php';
 		$controller = new Error404Controller();
