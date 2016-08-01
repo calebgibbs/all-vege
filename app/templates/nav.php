@@ -1,6 +1,6 @@
-<nav> 
+ <nav> 
 	<div id="nav-text">
-		<a href="index.html">
+		<a href="index.php?page=home">
 			<i class="fa fa-home" aria-hidden="true"></i> Home
 		</a>  
 								
@@ -20,7 +20,7 @@
 		<ul>
 			<li><a href="index.php?page=logout"><i class="fa fa-sign-out"></i> Log out</a></li>
 			<li><a href="index.php?page=account"><i class="fa fa-user"></i> My Account</a></li>
-	<?php if($_SESSION['privilege'] == 'admin'): ?>					
+	<?php if($_SESSION['privilege'] == 'admin' || $_SESSION['privilege'] == 'moderator' ): ?>					
 			
 			<li><a href="#"><i class="fa fa-cog"></i> Site Maintenance</a></li> 
 			<li><a href="#"><i class="fa fa-info-circle"></i> Help</a></li> 
