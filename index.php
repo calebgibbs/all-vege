@@ -3,7 +3,8 @@
 session_start();
 
 require 'vendor/autoload.php';
-require 'app/controllers/PageController.php';   
+require 'app/controllers/PageController.php';  
+require 'app/controllers/LoginController.php'; 
  
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
@@ -20,9 +21,8 @@ switch ($page) {
 		$controller = new SignupController($dbc);  	
 	break; 
 
-	case 'login':
-		require 'app/controllers/LoginController.php'; 
-		$controller = new LoginController($dbc);  	
+	case 'login': 
+		$Controller = new LoginController($dbc);  	
 	break;  
 
 	case 'search':
@@ -46,7 +46,6 @@ switch ($page) {
 		unset($_SESSION['id']);
 		unset($_SESSION['privilege']);
 		header('Location: index.php');
-		
 	break; 
 
 	default:
@@ -55,5 +54,8 @@ switch ($page) {
 	break;
 } 
 
-$controller -> buildHTML();
+
+
+$controller -> buildHTML(); 
+
 

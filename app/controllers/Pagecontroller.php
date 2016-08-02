@@ -15,7 +15,7 @@ abstract class PageController {
 
 	}
 
-	// Force children classes to have the buildHTML function
+	
 	abstract public function buildHTML();
 
 	public function mustBeLoggedIn() {
