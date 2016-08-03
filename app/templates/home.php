@@ -5,7 +5,6 @@
 
 	]); 
 ?> 
-<?= $this->insert('nav') ?>
 <div id="content"> 
 					<div id= "d1"> 
 						<a href="new.html">

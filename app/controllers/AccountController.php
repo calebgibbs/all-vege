@@ -20,16 +20,15 @@ class AccountController extends PageController {
 	private function getAccountinfo() { 
 
 
-		// //getting account information 
-		// $sql = "SELECT first_name, last_name, email, password 
-		// 		FROM users";  
+		$sql = "SELECT first_name 
+					FROM users"; 
 
-		// // $sqlPrint = mysqli_fetch_assoc($sql); 
+		$firstName = $this->dbc->query($sql); 
 
+		
+		
 
-
-		// if(!$dbc) { 
-		// 	die('conection failed');
-		// }
+		
+		
 	}
 }

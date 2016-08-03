@@ -4,7 +4,7 @@ session_start();
 
 require 'vendor/autoload.php';
 require 'app/controllers/PageController.php';  
-require 'app/controllers/LoginController.php'; 
+ 
  
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
@@ -22,7 +22,8 @@ switch ($page) {
 	break; 
 
 	case 'login': 
-		$Controller = new LoginController($dbc);  	
+		require 'app/controllers/LoginController.php';
+		$controller = new LoginController($dbc);  	
 	break;  
 
 	case 'search':

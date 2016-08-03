@@ -5,11 +5,10 @@
 
 	]); 
 ?> 
-<?= $this->insert('nav') ?>
 <div id="page"> 
 	<div id="account-overview"> 
 		<img src="http://placehold.it/250x250"> 
-		<span id="users-name">User's Name</span>
+		<span id="users-name"></span>
 	</div>  
 
 	<div id="account-settings">  
@@ -19,21 +18,21 @@
 		</h2> 
 			<p class="content">Change profile</p>	 
 		<h2 class="controller">
-			<span>First Name</span><span>First Name</span><span class="edit">Edit</span>
+			<span>First Name</span><span>Caleb</span><span class="edit">Edit</span>
 		</h2> 
 			<p class="content">
 				<input type="text" placeholder="Edit First Name">  
 				<input type="submit" value="Save">
 			</p> 
 		<h2 class="controller">
-			<span>Last Name</span><span>Last Name</span><span class="edit">Edit</span>
+			<span>Last Name</span><span>Gibbs</span><span class="edit">Edit</span>
 		</h2> 
 			<p class="content">
 				<input type="text" placeholder="Edit Last Name">  
 				<input type="submit" value="Save">
 			</p> 
 		<h2 class="controller">
-			<span>Email</span><span>users email</span><span class="edit">Edit</span>
+			<span>Email</span><span>calebgibbs@me.com</span><span class="edit">Edit</span>
 		</h2> 
 			<p class="content">
 				<input type="text" placeholder="change email">  

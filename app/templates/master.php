@@ -1,3 +1,4 @@
+<?php $page = isset($_GET['page']) ? $_GET['page'] : 'home'; ?>
 <!doctype html>
 <html lang="en">
 	<head>
@@ -8,15 +9,18 @@
 		<script src="https://use.fontawesome.com/228e8d7980.js"></script>
 	</head> 
 	<body>
+	<?php if($page != 'register'): ?>
+		<?= $this->insert('nav') ?> 
+	<?php endif; ?>
 
 	<?= $this->section('content') ?>
 
-
-
-		<footer>
-			<!-- <p>Copyright &copy; <?php echo date('Y') ?>  </p> -->
-		</footer>   
-		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-		<script type="text/javascript" src="js/animation.js"></script> 
+	<footer>
+		<?php if($page != 'register'): ?>
+			<p>Copyright &copy; <?php echo date('Y') ?></p>
+		<?php endif; ?>
+	</footer>   
+	<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+	<script type="text/javascript" src="js/animation.js"></script> 
 	</body>
 </html>

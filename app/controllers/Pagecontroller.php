@@ -9,10 +9,7 @@ abstract class PageController {
 	protected $data = [];
 
 	public function __construct() {
-
-		// Instantiate (create instance of) Plates library
 		$this->plates = new League\Plates\Engine('app/templates');
-
 	}
 
 	
@@ -20,30 +17,17 @@ abstract class PageController {
 
 	public function mustBeLoggedIn() {
 
-		// If you are not logged in
 		if( !isset($_SESSION['id']) ) {
-			// Redirect the user to the login page
 			header('Location: index.php?page=login');
-			die();
 		}
 
 	}
 
 	public function mustBeLoggedOut() {
-
-		// If you are not logged in
 		if( isset($_SESSION['id']) ) {
-			// Redirect the user to the login page
 			header('Location: index.php');
 			die();
 		}
 
 	}
-
-
-
-
 }
-
-
-

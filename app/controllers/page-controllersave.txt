@@ -1,37 +1,29 @@
 <?php 
 
-class LoginController extends PageController {  
+class LoginController extends PageController   {  
 
-	public function __construct($dbc) { 
+	public function __construct($dbc) {
 
-		parent::__construct();
-
-		$this->dbc = $dbc; 
-
-		if( isset( $_POST['login'] ) ) {
+		$this->dbc = $dbc;  
+ 
+		if( isset($_POST['login']) ) { 
 			$this->processLoginForm();
 		}
-	} 
-
-	public function buildHTML() {
-
-		echo $this->plates->render('home', $this->data);
-
-	} 
+	}
 
 	private function processLoginForm() {  
 
 		$totalErrors = 0;
 		
-		if( strlen($_POST['email']) < 6 ) {
-			$this->data['emailMessage'] = 'Invalid email';
-			$totalErrors++;
-		}
+		// if( strlen($_POST['email']) < 6 ) {
+		// 	$this->data['emailMessage'] = 'Invalid email';
+		// 	$totalErrors++;
+		// }
 
-		if( strlen($_POST['password']) < 8 ) {
-			$this->data['passwordMessage'] = 'Invalid password';
-			$totalErrors++;
-		}
+		// if( strlen($_POST['password']) < 8 ) {
+		// 	$this->data['passwordMessage'] = 'Invalid password';
+		// 	$totalErrors++;
+		// }
 
 		if($totalErrors == 0) { 
 			 
@@ -39,11 +31,9 @@ class LoginController extends PageController {
 			 
 			$sql = "SELECT id, password, privilege, first_name 
 					FROM users
-					WHERE 
-						email = '$fileredEmail'"; 
+					WHERE email = '$fileredEmail'  AND first_name = '$firstName'"; 
 			 
-			$result = $this->dbc->query($sql); 
-
+			$result = $this->dbc->query( $sql ); 
 
 			 
 			if( $result->num_rows == 1 ) {
@@ -54,9 +44,7 @@ class LoginController extends PageController {
 					
 					$_SESSION['id'] = $userData['id']; 
 					$_SESSION['privilege'] = $userData['privilege']; 
-					$_SESSION['first_name'] = $userData['first_name']; 
-
-					$firstName = $userData['first_name'];
+					$_SESSION['first_name'] = $userData['first_name'];
 
 					header('Location: index.php');
 
@@ -65,12 +53,13 @@ class LoginController extends PageController {
 					$this->data['loginMessage'] = "email or password is incorrect";
 
 				}
-				}else{ 
+
+
+			}else{ 
 				
 				$this->data['loginMessage'] = "email or password is incorrect";
-				}
+			}
 		}
 
 	}
-
 }

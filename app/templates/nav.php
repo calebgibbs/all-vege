@@ -1,6 +1,6 @@
 <nav> 
 	<div id="nav-text">
-		<a href="index.html">
+		<a href="index.php?page=home">
 			<i class="fa fa-home" aria-hidden="true"></i> Home
 		</a>  
 								
@@ -13,7 +13,7 @@
 		</span> 
 		<?php if(isset($_SESSION['id'])): ?>
 		<span id="account" >
-			<img src="http://placehold.it/40x40"> <span id="acc-name" class="clicked"><?= $firstName ?></span>
+			<img src="http://placehold.it/40x40"> <span id="acc-name" class="clicked"></span>
 		</span> 
 	</div> 
 	<div class="mod-nav" id="acc-box"> 
@@ -29,7 +29,7 @@
 	<?php endif; ?> 
 		<?php else: ?> 
 		<span id="v-account" class="clicked">
-							<i class="fa fa-user" aria-hidden="true"></i> <span class="smallT" >Log in/Sign up</span>
+							<i class="fa fa-user" aria-hidden="true"></i> <span class="smallT" >Log in</span>
 						</span> 
 					</div> 
 					<div class="v-acc-box" id="acc-box"> 
