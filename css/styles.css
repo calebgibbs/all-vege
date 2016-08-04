@@ -499,7 +499,9 @@ nav {
 
 .content { 
 	display: none;
-} 
+	padding-top: 5px; 
+	padding-bottom: 5px;
+}  
 
 #recipe-image { 
 	display: inline-block; 

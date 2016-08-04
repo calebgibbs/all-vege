@@ -6,29 +6,11 @@ class AccountController extends PageController {
 
 		parent::__construct(); 
 
-		$this->dbc = $dbc;
-
-		$this->mustBeLoggedIn(); 
-
-		$this->getAccountinfo();
+		$this->dbc = $dbc;		
 	}
 
 	public function buildHTML() { 
 		echo $this->plates->render('account');
 	} 
 
-	private function getAccountinfo() { 
-
-
-		$sql = "SELECT first_name 
-					FROM users"; 
-
-		$firstName = $this->dbc->query($sql); 
-
-		
-		
-
-		
-		
-	}
 }
