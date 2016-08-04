@@ -24,16 +24,17 @@
 		<h2 class="controller">
 			<span>First Name</span><span><?= $_SESSION['first_name'] ?></span><span class="edit">Edit</span>
 		</h2> 
-			<form class="content" action="index.php?page=account" method="post">
-				<input type="text" placeholder="Edit First Name">  
-				<input type="submit" value="Save" name="update-first-name"> 	
+			<form id="first-name" class="content" action="index.php?page=account" method="post">
+				<input type="text" id="first-name" name="first-name" placeholder="Edit First Name">  
+				<input type="submit" value="Save" name="update-first-name"> 
+				<span id="first-name-message"></span>  	
 			</form> 
 
 		<h2 class="controller">
 			<span>Last Name</span><span><?= $_SESSION['last_name'] ?></span><span class="edit">Edit</span>
 		</h2> 
-			<form class="content" action="index.php?page=account" method="post">
-				<input type="text" placeholder="Edit Last Name">  
+			<form id="last-name" class="content" action="index.php?page=account" method="post">
+				<input type="text" name="last-name" placeholder="Edit Last Name">  
 				<input type="submit" value="Save" name="update-last-name">
 			</form> 
 

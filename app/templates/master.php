@@ -22,5 +22,6 @@
 	</footer>   
 	<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 	<script type="text/javascript" src="js/animation.js"></script> 
+	<script type="text/javascript" src="js/accountValidation.js"></script> 
 	</body>
 </html>
