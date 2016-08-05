@@ -6,6 +6,7 @@
 ?>
 	<div id="login-background"></div>
 	<div id="box"> 	
+	<a href="index.php?page=home" class="home-button"><i class="fa fa-home" aria-hidden="true"></i></a>
 		<div id="create-account"> 
 			<h1>Log in</h1> 
 			<form action="index.php?page=login" method="post" id="login-form">

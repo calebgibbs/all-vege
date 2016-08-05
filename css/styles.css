@@ -381,7 +381,7 @@ nav {
 
 
 #box { 
-	text-align: center;  
+	 
 	width: 480px; 
 	background-color: #fff; 
 	padding: 10px; 
@@ -394,9 +394,20 @@ nav {
   	left: 0;
   	right: 0;
   	z-index: 9999;
+}  
+
+.home-button { 
+	color: #000; 
+	float: left; 
+	font-size: 35px;
 } 
 
+.home-button:hover { 
+	color: #fff;
+}
+
 #create-account { 
+	text-align: center; 
 	width: 400px; 
 	margin: 0 auto; 
 }  

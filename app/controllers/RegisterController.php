@@ -45,7 +45,7 @@ class SignupController extends PageController{
 			$data['passwordMessage'] = $this->passwordMessage;
 		}
 
-		echo $plates->render('sign-up', $data);
+		echo $plates->render('register', $data);
 	} 
 
 	private function validateRegistrationForm(){
@@ -97,10 +97,13 @@ class SignupController extends PageController{
 					VALUES ('$filteredFirstName', '$filteredLastName', '$filteredEmail', '$hash')"; 
 			$this->dbc->query($sql);  
 
-			$_SESSION['id'] = $this->dbc->insert_id;
-			$_SESSION['privilege'] = 'user';
+			// $_SESSION['id'] = $this->dbc->insert_id;
+			// $_SESSION['first_name'] = $this->dbc->insert_first_name; 
+			// $_SESSION['last_name'] = $this->dbc->insert_last_name; 
+			// $_SESSION['email'] = $this->dbc->insert_email;
+			// $_SESSION['privilege'] = 'user'; 
 
-			header('Location: index.php?page=home');
+			header('Location: index.php?page=login');
 		}
 	}
 

@@ -9,14 +9,14 @@
 		<script src="https://use.fontawesome.com/228e8d7980.js"></script>
 	</head> 
 	<body>
-	<?php if($page != 'register'): ?>
+	<?php if($page != 'login' && $page != 'register'): ?>
 		<?= $this->insert('nav') ?> 
 	<?php endif; ?>
 
 	<?= $this->section('content') ?>
 
 	<footer>
-		<?php if($page != 'register'): ?>
+		<?php if($page != 'login' && $page != 'register'): ?>
 			<p>Copyright &copy; <?php echo date('Y') ?></p>
 		<?php endif; ?>
 	</footer>   

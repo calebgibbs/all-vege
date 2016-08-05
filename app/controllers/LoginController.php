@@ -4,7 +4,9 @@ class LoginController extends PageController {
 
 	public function __construct($dbc) { 
 
-		parent::__construct();
+		parent::__construct(); 
+
+		$this->mustBeLoggedOut();
 
 		$this->dbc = $dbc; 
 
@@ -15,7 +17,7 @@ class LoginController extends PageController {
 
 	public function buildHTML() {
 
-		echo $this->plates->render('home', $this->data);
+		echo $this->plates->render('login', $this->data);
 
 	} 
 
