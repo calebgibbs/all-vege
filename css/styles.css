@@ -28,9 +28,8 @@ nav {
 	vertical-align:middle; 
 	color: #000; 
 	position: absolute; 
-	display: inline-block;
-}
-
+	display: inline-block; 
+} 
 #nav-text a:hover { 
 	color: #fff;
 } 
@@ -44,12 +43,16 @@ nav {
 	cursor: text; 
 	vertical-align:middle;
 	display: none;  
-	margin-top: -27px; 
-	/*display: inline-block;*/
+	margin-top: -30px;  
 } 
 
 #search-bar input { 
-	font-size: 20px;
+	font-size: 20px; 
+	display: inline-block; 
+} 
+
+#search-button { 
+	display: none !important;
 }
 
 #account { 
@@ -463,7 +466,17 @@ nav {
 	display: block; 
 	font-size: 25px; 
 	padding-bottom: 10px; 
-} 
+}  
+
+#account-message span { 
+	width: 90%;
+	font-size: 15px;
+	display: block; 
+	padding: 0; 
+	text-align: left; 
+	margin-left: -1px; 
+	color: #66ee66;
+}   
 
 #account-settings { 
 	width: 85%; 
@@ -573,10 +586,50 @@ label.star:before {
 
 #recipe-page{ 
 	width: 95%; 
-	/*background-color: green; */
 	margin: 0 auto; 
 	padding: 10px; 
+} 
+
+#panel { 
+	width: 98%; 
+	border-bottom: 1px solid #999; 
+	margin: 0 auto;
+} 
+
+#panel ul { 
+	list-style-type: none;
+    margin: 0;
+    padding: 0; 
+    margin: 0 auto; 
+} 
+
+#panel li { 
+	display: inline; 
+	padding-right: 50px; 
+	font-size: 15px;
+} 
+
+#panel li:last-child { 
+	padding-right: 0px; 
+}   
+
+#panel a { 
+	text-decoration: none; 
+	color: #000;
+} 
+
+#panel a:hover { 
+	color: #ccc;
 }
+
+#panel-menu { 
+	/*width: 430px;*/ 
+	text-align: center; 
+	margin: 0 auto;
+	padding-top: 20px; 
+	padding-bottom: 20px;
+} 
+
 
 
 

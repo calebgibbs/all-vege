@@ -24,6 +24,17 @@ switch ($page) {
 	case 'login': 
 		require 'app/controllers/LoginController.php';
 		$controller = new LoginController($dbc);  	
+	break; 
+
+	case 'logout':
+		unset($_SESSION['id']);
+		unset($_SESSION['first_name']);
+		unset($_SESSION['last_name']);
+		unset($_SESSION['email']);
+		unset($_SESSION['profile_picture']);
+		unset($_SESSION['password']);
+		unset($_SESSION['privilege']);
+		header('Location: index.php');
 	break;  
 
 	case 'search':
@@ -40,19 +51,25 @@ switch ($page) {
 	break; 
 
 	case 'settings':
-		echo $plates -> render('settings'); 	
-	break; 
+	case 'add-recipe':
+		require 'app/controllers/AddRecipeController.php'; 
+		$controller = new AddRecipeController($dbc); 	
+	break;  
 
-	case 'logout':
-		unset($_SESSION['id']);
-		unset($_SESSION['first_name']);
-		unset($_SESSION['last_name']);
-		unset($_SESSION['email']);
-		unset($_SESSION['profile_picture']);
-		unset($_SESSION['password']);
-		unset($_SESSION['privilege']);
-		header('Location: index.php');
-	break; 
+	case 'all-recipes': 
+		require 'app/controllers/AllRecipesController.php'; 
+		$controller = new AllRecipesController($dbc);
+	break;  
+
+	case 'users': 
+		require 'app/controllers/UserController.php'; 
+		$controller = new UserController($dbc);
+	break;
+
+	case 'help': 
+		require 'app/controllers/HelpController.php'; 
+		$controller = new HelpController($dbc);
+	break;
 
 	default:
 		require 'app/controllers/Error404Controller.php';

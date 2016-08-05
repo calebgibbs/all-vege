@@ -9,7 +9,10 @@
 				<i class="fa fa-search" aria-hidden="true"></i> 
 				<span id="search-s">Search</span> 
 			</span>
-				<span id="search-bar"><input type="text" name="search" placeholder="Search" id="search"></span>
+				<span id="search-bar">
+					<input type="text" name="search-bar" placeholder="Search" id="search">
+					<input type="submit" name="search" id="search-button" value="Search">
+				</span>
 		</span> 
 		<?php if(isset($_SESSION['id'])): ?>
 		<span id="account" class="clicked">
@@ -20,10 +23,10 @@
 		<ul>
 			<li><a href="index.php?page=logout"><i class="fa fa-sign-out"></i> Log out</a></li>
 			<li><a href="index.php?page=account"><i class="fa fa-user"></i> My Account</a></li>
-	<?php if($_SESSION['privilege'] == 'admin'): ?>					
+	<?php if($_SESSION['privilege'] == 'admin' || $_SESSION['privilege'] == 'moderator'): ?>					
 			
-			<li><a href="#"><i class="fa fa-cog"></i> Site Maintenance</a></li> 
-			<li><a href="#"><i class="fa fa-info-circle"></i> Help</a></li> 
+			<li><a href="index.php?page=settings"><i class="fa fa-cog"></i> Site Maintenance</a></li> 
+			<li><a href="index.php?page=help"><i class="fa fa-info-circle"></i> Help</a></li> 
 		</ul> 
 
 	<?php endif; ?> 

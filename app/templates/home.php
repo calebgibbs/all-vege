@@ -10,7 +10,7 @@
 						<a href="new.html">
 							<img src="images/new.jpg"> 
 						</a> 
-						<span class="cat-text"><h2>New Recipes</h2></span>
+						<!-- <span class="cat-text"><h2>New Recipes</h2></span> -->
 					</div>
 					<div id="right-box">	
 						

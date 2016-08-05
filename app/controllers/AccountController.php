@@ -6,8 +6,7 @@ class AccountController extends PageController {
 
 		parent::__construct(); 
 
-		$this->mustBeLoggedIn();
-
+		$this->mustBeLoggedIn(); 
 		$this->dbc = $dbc;	
 
 
@@ -28,9 +27,15 @@ class AccountController extends PageController {
 	private function updateFirstname() { 
 		$totalErrors = 0; 
 
-		if( strlen($_POST['first-name']) > 50 || strlen($_POST['first-name']) == 0  ) {
+		if( strlen($_POST['first-name']) > 50 ) {
+			$this->data['firstNameMessage'] = "<p>Your first name must be at most 50 characters</p>";
+			$totalErrors++;	
+		}  
+
+		if(strlen($_POST['first-name']) == 0) { 
+			$this->data['firstNameMessage'] = "<p>You must enter a name</p>";
 			$totalErrors++;
-		} 
+		}
 
 		if( $totalErrors == 0 ) {
 			

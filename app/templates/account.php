@@ -6,10 +6,20 @@
 	]); 
 ?> 
 <div id="page"> 
+	
 	<div id="account-overview"> 
 		<img src="http://placehold.it/250x250"> 
-		<span id="users-name"><?= $_SESSION['first_name'] ?> <?= $_SESSION['last_name'] ?></span>
+		<span id="users-name"><?= $_SESSION['first_name'] ?> <?= $_SESSION['last_name'] ?></span> 
+		<div id="account-message">
+		<span>
+			<?php if( isset($firstNameMessage) ): ?>
+        	<p> <?= $firstNameMessage ?> </p>
+        	<?php endif; ?> 
+		</span>
+	</div>
 	</div>  
+
+	 
 
 	<div id="account-settings">  
 						
@@ -26,7 +36,7 @@
 		</h2> 
 			<form id="first-name" class="content" action="index.php?page=account" method="post">
 				<input type="text" id="first-name" name="first-name" placeholder="Edit First Name">  
-				<input type="submit" value="Save" name="update-first-name"> 
+				<input type="submit" value="Save" id="button" name="update-first-name"> 
 				<span id="first-name-message"></span>  	
 			</form> 
 
@@ -72,3 +82,6 @@
 				<input type="submit" value="Confirm" name="deactivate-account">
 			</form>
 	</div>  
+</div> 
+
+

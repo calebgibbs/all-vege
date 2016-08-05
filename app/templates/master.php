@@ -6,6 +6,7 @@
 		<title><?= $title ?></title> 								
 		<meta name="description" content="<?= $desc ?>"> 		
 		<link rel="stylesheet" href="css/styles.css">
+		<link rel="icon" href="images/logo.png">
 		<script src="https://use.fontawesome.com/228e8d7980.js"></script>
 	</head> 
 	<body>
