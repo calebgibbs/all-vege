@@ -18,7 +18,7 @@ switch ($page) {
 
 	case 'register':
 		require 'app/controllers/RegisterController.php'; 
-		$controller = new SignupController($dbc);  	
+		$controller = new RegisterController($dbc);  	
 	break; 
 
 	case 'login': 

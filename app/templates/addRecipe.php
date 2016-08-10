@@ -17,6 +17,11 @@
 			<div>
 				<label>Description: </label> 
 				<input>
+			</div> 
+
+			<div>
+				<label>Ingredients</label> 
+				
 			</div>
 		</form>
 	</div>
