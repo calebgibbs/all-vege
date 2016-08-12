@@ -18,7 +18,7 @@ switch ($page) {
 
 	case 'register':
 		require 'app/controllers/RegisterController.php'; 
-		$controller = new RegisterController($dbc);  	
+		$controller = new SignupController($dbc);  	
 	break; 
 
 	case 'login': 
@@ -38,11 +38,13 @@ switch ($page) {
 	break;  
 
 	case 'search':
-		echo $plates -> render('search'); 	
+		require 'app/controllers/SearchController.php';
+		$controller = new SearchController($dbc); 	
 	break; 
 
 	case 'recipe':
-		echo $plates -> render('recipe'); 	
+		require 'app/controllers/RecipeController.php'; 
+		$controller = new RecipeController($dbc); 	
 	break; 
 
 	case 'account':

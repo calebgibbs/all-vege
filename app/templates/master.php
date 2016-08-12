@@ -9,8 +9,12 @@
 		<link rel="icon" href="images/logo.png">
 		<script src="https://use.fontawesome.com/228e8d7980.js"></script>
 	</head> 
+	
+	<?php if($page != 'search'): ?>
 	<body>
-	<?php if($page != 'login' && $page != 'register'): ?>
+	<?php endif; ?>
+
+	<?php if($page != 'login' && $page != 'register' && $page != 'search'): ?>
 		<?= $this->insert('nav') ?> 
 	<?php endif; ?>
 

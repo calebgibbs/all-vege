@@ -12,9 +12,10 @@
 		<span id="users-name"><?= $_SESSION['first_name'] ?> <?= $_SESSION['last_name'] ?></span> 
 		<div id="account-message">
 		<span>
-			<?php if( isset($firstNameMessage) ): ?>
-        	<p> <?= $firstNameMessage ?> </p>
-        	<?php endif; ?> 
+			<?php if( isset($contactMessage) ): ?>
+        	<p> <?= $contactMessage ?> </p>
+        	<?php endif; ?>  
+
 		</span>
 	</div>
 	</div>  
@@ -36,8 +37,7 @@
 		</h2> 
 			<form id="first-name" class="content" action="index.php?page=account" method="post">
 				<input type="text" id="first-name" name="first-name" placeholder="Edit First Name">  
-				<input type="submit" value="Save" id="button" name="update-first-name"> 
-				<span id="first-name-message"></span>  	
+				<input type="submit" value="Save" id="button" name="update-first-name">   	
 			</form> 
 
 		<h2 class="controller">
