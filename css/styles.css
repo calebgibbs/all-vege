@@ -682,7 +682,64 @@ nav {
 	max-height: 300px; 
 	display: inline-block;
 	vertical-align:top;	 
+}  
+
+#add-rec { 
+	width: 75%; 
+	margin: 0 auto; 
+	margin-top: 10px;
 } 
+
+.label { 
+	width: 100px; 
+	display: inline-block;
+} 
+
+#recipe-frm div { 
+	margin-top: 15px;
+} 
+
+#title-input { 
+	width: 800px; 
+	height: 25px; 
+	border-radius: 3px; 
+	border: 1px solid #000; 
+	font-size: 15px;
+}  
+
+#recipe-frm textarea { 
+	width: 800px; 
+	height: 200px;
+	border-radius: 3px; 
+	border: 1px solid #000; 
+	font-size: 15px;
+}
+
+#recipe-frm label { 
+	vertical-align:top;
+}  
+
+#tags { 
+	display: inline-block; 
+} 
+
+#tag-left { 
+	display: inline-block;
+} 
+
+#tag-right { 
+	display: inline-block; 
+	vertical-align: top;
+} 
+
+.tag-lab { 
+	display: inline-block; 
+} 
+
+/*#recipe-form { 
+	width: 1000px; 
+	margin: 0 auto; 
+}*/
 
 
 
