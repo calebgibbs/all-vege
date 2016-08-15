@@ -53,14 +53,19 @@ switch ($page) {
 	break; 
 
 	case 'settings':
-	case 'add-recipe':
+	case 'addRecipe':
 		require 'app/controllers/AddRecipeController.php'; 
 		$controller = new AddRecipeController($dbc); 	
 	break;  
 
-	case 'all-recipes': 
+	case 'allRecipes': 
 		require 'app/controllers/AllRecipesController.php'; 
 		$controller = new AllRecipesController($dbc);
+	break; 
+
+	case 'myRecipes':
+		require 'app/controllers/MyRecipesController.php'; 
+		$controller = new MyRecipesController($dbc);
 	break;  
 
 	case 'users': 

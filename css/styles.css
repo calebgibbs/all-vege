@@ -736,10 +736,11 @@ nav {
 	display: inline-block; 
 } 
 
-/*#recipe-form { 
-	width: 1000px; 
-	margin: 0 auto; 
-}*/
+#page-setup { 
+	width: 94%; 
+	min-height: 100px; 
+	margin: 0 auto;
+}
 
 
 
