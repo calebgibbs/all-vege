@@ -6,7 +6,7 @@ class AllRecipesController extends PageController {
 
 		parent::__construct(); 
 		$this->mustBeLoggedIn();
-		$this->mustBeModerator(); 
+		$this->mustBeAdmin(); 
 		$this->dbc = $dbc;	
 	} 
 

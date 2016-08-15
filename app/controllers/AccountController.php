@@ -4,10 +4,15 @@ class AccountController extends PageController {
 
 	public function __construct($dbc) { 
 		parent::__construct(); 
-		$this->mustBeLoggedIn(); 
+		$this->mustBeLoggedIn();
+		$this->dbc = $dbc;  
 
 		if(isset($_POST['update-first-name'])){ 
 			$this->updateFirstName();
+		} 
+
+		if(isset($_POST['update-last-name'])) { 
+			$this->updateLastname();
 		}
 
 	}  
@@ -31,7 +36,7 @@ class AccountController extends PageController {
 			$totalErrors++; 
 		} 
 
-		if ($totalErrors == 0) { 
+		if ($totalErrors === 0) { 
 			
 			$firstName = $this->dbc->real_escape_string($firstName); 
  
@@ -41,8 +46,14 @@ class AccountController extends PageController {
  					SET first_name = '$firstName'
  					WHERE id = $userID"; 
 
- 			$this->dbc->query( $sql );
+ 			$this->dbc->query( $sql ); 
+ 			$this->data['contactMessage'] = '<p style="color:green;">Your first name has been updated please <a href="index.php?page=logout">log out</a> and back in for these changes to take effect</p>'; 
+ 			
 		}
+	} 
+
+	private function updateLastname() { 
+		die('Passed to last name function');
 	}
 
 
