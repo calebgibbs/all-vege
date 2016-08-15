@@ -11,12 +11,12 @@
 		<img src="http://placehold.it/250x250"> 
 		<span id="users-name"><?= $_SESSION['first_name'] ?> <?= $_SESSION['last_name'] ?></span> 
 		<div id="account-message">
-		<span>
+		
 			<?php if( isset($contactMessage) ): ?>
         	<p> <?= $contactMessage ?> </p>
         	<?php endif; ?>  
 
-		</span>
+		
 	</div>
 	</div>  
 
