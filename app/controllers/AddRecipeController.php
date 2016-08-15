@@ -9,7 +9,7 @@ class AddRecipeController extends PageController {
 		$this->dbc = $dbc;	 
 		
 		if( isset($_POST['add-recipe'])) { 
-			$this->validateNewRecipe();
+			$this->processNewRecipe();
 		}
 	} 
 
@@ -17,7 +17,7 @@ class AddRecipeController extends PageController {
 		echo $this->plates->render('addRecipe', $this->data);
 	} 
 
-	private function validateNewRecipe() { 
+	private function processNewRecipe() { 
 
 		$totalErrors = 0; 
 		$title = trim($_POST['title']);
@@ -59,14 +59,30 @@ class AddRecipeController extends PageController {
 			$totalErrors++;
 		} 
 
-		if($totalErrors == 0) { 
-			$this->processNewRecipe();
-		}
-	} 
+		if($totalErrors == 0) {  
+				//filter the data  
+			$title = $this->dbc->real_escape_string($title);
+			$desc = $this->dbc->real_escape_string($desc);
+			$ingredients = $this->dbc->real_escape_string($ingredients);
+			$method = $this->dbc->real_escape_string($method);  
 
-	private function processNewRecipe() { 
-		
+	 
+			//get id of logged in user   
+			$userID = $_SESSION['id'];
+
+			//insert into the sql  
+			$sql = "INSERT INTO recipes (title, description, ingredients, method, created_by) 
+					VALUES ('$title', '$desc', '$ingredients', '$method', $userID)";   
+
+			$this->dbc->query($sql);
+
+			if($this->dbc->affected_rows) { 
+				$this->data['postMessage'] = '<p style="color:green"><b>Success! New recipe has been added</b></p>';
+			}else { 
+				$this->data['postMessage'] = '<p style="color:red"><b>Something went wrong! <br />
+				<i>This new recipe could not be processed <br />
+				Please contact the website owner to fix this problem</i></b></p>';
+			} 
 	} 
-	
-	
+}   
 }

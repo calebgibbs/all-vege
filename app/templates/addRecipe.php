@@ -1,4 +1,4 @@
- <?php 
+<?php 
 	$this -> layout('master',[
 		'title'=>'Add Recipe', 
 		'desc' => 'Add a Recipe' 
@@ -8,7 +8,8 @@
 <?= $this->insert('panelNav') ?>
 <div id="add-rec"> 
 	
-	<h1>Add a New Recipe</h1> 
+	<h1>Add a New Recipe</h1>  
+	<?=  isset($postMessage) ? $postMessage : '' ?>
 
 	<div id="recipe-form"> 
 		
@@ -89,4 +90,3 @@
 	</div>
 
 </div>
-	
