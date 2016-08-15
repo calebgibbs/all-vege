@@ -52,7 +52,7 @@
 			<span>Email</span><span><?= $_SESSION['email'] ?></span><span class="edit">Edit</span>
 		</h2> 
 			<form class="content" action="index.php?page=account" method="post">
-				<input type="text" placeholder="change email">  
+				<input type="text" name="email" placeholder="change email">  
 				<input type="submit" value="Save" name="update-email">
 			</form>
 
@@ -80,7 +80,8 @@
 				<span>Please enter your password to confirm: </span>
 				<input type="password" placeholder="Password"> 
 				<input type="submit" value="Confirm" name="deactivate-account">
-			</form>
+			</form> 
+
 	</div>  
 </div> 
 
