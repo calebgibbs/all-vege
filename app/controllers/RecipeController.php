@@ -6,8 +6,14 @@ class RecipeController extends PageController {
 	public function __construct($dbc) { 
 		parent::__construct(); 
 		
-		$this->dbc = $dbc;
-		$this->getRecipeData();
+		$this->dbc = $dbc; 
+
+		if (isset($_GET['delete'])) {
+			$this->deleteRecipe();
+		}
+
+		$this->getRecipeData(); 
+
 	} 
 
 		public function buildHTML() { 
@@ -31,5 +37,56 @@ class RecipeController extends PageController {
 			//got a reult from the database. 
 			$this->data['recipe'] = $result->fetch_assoc();
 		}
+	} 
+
+	private function deleteRecipe() { 
+		$this->mustBeModerator(); 
+		$admin = $_SESSION['privilege'] == 'admin'; 
+		$userID = $_SESSION['id']; 
+		$recipeID = $this->dbc->real_escape_string($_GET['recipeid']); 
+	
+		$sql = "DELETE FROM recipes
+				WHERE id = $recipeID"; 
+
+		if(!$admin) {  
+			$sql .= " AND created_by = $userID";
+		}else{
+			return;
+		}  
+
+		$this->dbc->query($sql);   
+		header('Location: index.php?page=home'); 
+		die();
 	}
-}
+} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

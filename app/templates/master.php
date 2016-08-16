@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="css/styles.css">
 		<link rel="icon" href="images/logo.png">
 		<script src="https://use.fontawesome.com/228e8d7980.js"></script>
+		
 	</head> 
 	
 	<?php if($page != 'search'): ?>
@@ -25,7 +26,10 @@
 			<p>Copyright &copy; <?php echo date('Y') ?></p>
 		<?php endif; ?>
 	</footer>   
-	<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
+	<?php if($page != 'recipe'): ?> 
+		<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script> 
+		<p> Can see jquery file</p>
+	<?php endif; ?>
 	<script type="text/javascript" src="js/animation.js"></script> 
 	<script type="text/javascript" src="js/accountValidation.js"></script> 
 	</body>

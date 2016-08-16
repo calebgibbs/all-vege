@@ -18,5 +18,7 @@ $(document).ready(function(){
 
 	$('.controller').click(function(){
 		$(this).next('.content').slideToggle({"display" : "block"});
-	});
+	}); 
+
+	
 });

@@ -740,6 +740,10 @@ nav {
 	width: 94%; 
 	min-height: 100px; 
 	margin: 0 auto;
+} 
+
+#del-recipe-option { 
+	display: none;
 }
 
 
