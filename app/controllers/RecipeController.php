@@ -50,9 +50,7 @@ class RecipeController extends PageController {
 
 		if(!$admin) {  
 			$sql .= " AND created_by = $userID";
-		}else{
-			return;
-		}  
+		}
 
 		$this->dbc->query($sql);   
 		header('Location: index.php?page=home'); 

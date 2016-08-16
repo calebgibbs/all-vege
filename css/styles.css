@@ -744,6 +744,46 @@ nav {
 
 #del-recipe-option { 
 	display: none;
+} 
+
+#table { 
+	width: 90%; 
+	margin: 0 auto; 
+	border: 1px solid #000;
+	border-bottom: 0;
+}  
+
+#table a {
+	text-decoration: none;
+}
+
+#rec-title { 
+	width: 25%; 
+	display: inline-block; 
+	border-right: 1px solid #000;
+	margin-left: 5px;  
+	padding:5px;
+} 
+
+#rec-desc {
+	margin-left: 5px; 
+	display: inline-block; 
+	overflow: hidden; 
+	white-space: nowrap; 
+} 
+
+.recipe-results { 
+	border-bottom: 1px solid #000;  
+	color: #000; 
+
+} 
+
+.recipe-results-title { 
+	border-bottom: 1px solid #000;
+} 
+ 
+.recipe-results:hover { 
+	background-color: #f2f2f2;
 }
 
 
