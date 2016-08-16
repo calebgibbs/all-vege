@@ -10,8 +10,10 @@
 				<span id="search-s">Search</span> 
 			</span>
 				<span id="search-bar">
-					<input type="text" name="search-bar" placeholder="Search" id="search">
-					<input type="submit" name="search" id="search-button" value="Search">
+					<form method="post" action="index.php?page=search">
+						<input type="text" name="search-bar" placeholder="Search" id="search">
+						<input type="submit" name="search" id="search-button" value="Search">
+					</form>
 				</span>
 		</span> 
 		<?php if(isset($_SESSION['id'])): ?>

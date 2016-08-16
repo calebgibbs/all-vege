@@ -9,7 +9,7 @@
 	<?= $this->insert('nav') ?>  
 	<div id="search-results">
 
-		<!-- ` -->
+		<h1>Search results for "<i><?= $this->e($searchTerm) ?></i>"</h1>
 
 		<a href="index.php?page=home">
 			<div class="result">
@@ -27,9 +27,11 @@
 							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</i> </p>
 						</article>
-					</div> 
+					</div>  
+					</div>
 				</div>
-			</div> 
+			</div>  
+			</div>
 		</a> 
 
 	</div>

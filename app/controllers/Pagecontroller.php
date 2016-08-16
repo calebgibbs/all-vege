@@ -35,7 +35,6 @@ abstract class PageController {
 	public function mustBeAdmin() { 
 
 		if($_SESSION['privilege'] != 'admin') { 
-			echo "You cannot access this page";
 			header('Location: index.php?page=error404');
 		}
 	} 
@@ -43,7 +42,6 @@ abstract class PageController {
 	public function mustBeModerator() { 
 
 		if($_SESSION['privilege'] != 'moderator' && $_SESSION['privilege'] != 'admin') { 
-			echo "You cannot access this page";
 			header('Location: index.php?page=error404');
 		}
 	} 
