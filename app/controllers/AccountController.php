@@ -135,7 +135,55 @@ class AccountController extends PageController {
 	} 
 
 	private function updatePassword() { 
-		die('passed to password function');
+		$totalErrors = 0; 
+		$currentPassword = $_POST['current-password']; 
+		$newPassword = $_POST['new-password']; 
+		$newPasswordAgain = $_POST['new-password-again'];  
+
+		$userID = $_SESSION['id']; 
+
+		$getPassword = "SELECT id, password 
+				FROM users
+				WHERE 
+					id = '$userID'"; 
+
+		$result = $this->dbc->query($getPassword);
+
+		if(strlen($newPassword) < 8) { 
+			$this->data['contactMessage'] = '<p style="color:red;">Your new password is too short</p>'; 
+			$totalErrors++; 
+		}  
+
+		if(strlen($currentPassword) == 0 || strlen($newPassword) == 0 || strlen($newPasswordAgain) == 0 ) {
+			$this->data['contactMessage'] = '<p style="color:red;"><b>Password not updated.</b> Please fill in the correct information</p>';	
+		}
+
+		if($newPassword != $newPasswordAgain) { 
+			$this->data['contactMessage'] = '<p style="color:red;">Your new passwords do not match</p>'; 
+			$totalErrors++; 
+		} 
+
+		if( $result->num_rows == 1 ) {
+			$userData = $result->fetch_assoc();  
+			$passwordResult = password_verify( $currentPassword, $userData['password'] ); 
+			
+			if($passwordResult != true) { 
+				$this->data['contactMessage'] = '<p style="color:red;">Your current password is incorrect</p>'; 
+				$totalErrors++; 
+			}
+		} 
+
+		if ($totalErrors == 0) {
+			$hash = password_hash($newPasswordAgain, PASSWORD_BCRYPT);  
+
+			$sql = "UPDATE users
+ 					SET password = '$hash'
+ 					WHERE id = '$userID'";   
+ 			$this->dbc->query( $sql ); 
+
+ 			$this->data['contactMessage'] = '<p style="color:green;">Your password has been updated</p>';
+
+		}
 	}
 
 

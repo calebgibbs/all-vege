@@ -61,13 +61,13 @@
 		</h2> 
 			<form class="content" action="index.php?page=account" method="post">
 				<label>Current Password:</label> 
-				<input type="password" placeholder="Current password"> 
+				<input type="password" name="current-password" placeholder="Current password"> 
 							 
 				<label>New Password:</label> 
-				<input type="password" placeholder="Current password">  
+				<input type="password" name="new-password" placeholder="New password">  
 							
 				<label>Re-type new Password:</label> 
-				<input type="password" placeholder="Current password"> 
+				<input type="password" name="new-password-again" placeholder="New password again"> 
 							
 				<input type="submit" value="Save" name="update-password">
 			</form> 
