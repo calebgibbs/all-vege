@@ -185,8 +185,6 @@ class AccountController extends PageController {
 
 		}
 	}
-
-
 }
 
 

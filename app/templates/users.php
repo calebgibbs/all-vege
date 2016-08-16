@@ -6,4 +6,9 @@
 	]); 
 ?> 
 <?= $this->insert('panelNav') ?>
-<h1>Users</h1>
+<div id="page-setup">
+	<h1>Users</h1> 
+	<h3>Admins</h3>  
+	<h3>Moderators</h3> 
+	<h3>Users</h3>
+</div>

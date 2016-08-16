@@ -1,11 +1,17 @@
 <?php 
+	$pageTitle = $recipe['title']; 
+	$pageDescription = $recipe['description'];
 	$this -> layout('master',[
-		'title'=>'Recipe', 
-		'desc' => 'View the recipe' 
+		'title'=>$pageTitle, 
+		'desc' => $pageDescription 
 
 	]); 
 ?>  
-
+<?php if(isset($_SESSION['id'])): ?>
+	<?php if($recipe['created_by'] == $_SESSION['id'] || $_SESSION['privilege'] == 'admin'): ?>
+	<a href="">Edit</a> <a href="">Delete</a>
+	<?php endif; ?>
+<?php endif; ?>
 <div id="recipe">
 	<div>
 		<div id="recipe-img"> 
@@ -14,32 +20,23 @@
 
 		<div id="recipe-head">
 			<article>
-				<h1>Title</h1> 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
+				<h1><?= $recipe['title'] ?></h1> 
+				<p><?= $recipe['description'] ?></p>
 			</article>
 		</div> 
 	</div> 
 	<div>
 		<div id="ingredients">
 			<article>
-				<h3>Ingredients</h3>
+				<h3>Ingredients</h3> 
+				<p><?= $recipe['ingredients'] ?></p>
 			</article>
 		</div> 
 
 		<div id="method">
 			<article>
 				<h3>Method</h3> 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				<p><?= $recipe['method'] ?></p>
 			</article>
 		</div>
 	</div>

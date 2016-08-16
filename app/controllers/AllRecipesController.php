@@ -11,7 +11,25 @@ class AllRecipesController extends PageController {
 	} 
 
 	public function buildHTML() { 
-		echo $this->plates->render('allRecipes');
+		 
+		$allData = $this->allRecipes(); 
+
+		$data = []; 
+
+		$data['allRecipes'] = $allData;
+
+		echo $this->plates->render('allRecipes', $data );
+	} 
+
+	private function allRecipes() { 
+		$sql = "SELECT id, title, description 
+				FROM recipes";
+
+		$result = $this->dbc->query($sql);
+
+		$allData = $result->fetch_all(MYSQLI_ASSOC); 
+	 
+		return $allData;
 	}
 	
 	

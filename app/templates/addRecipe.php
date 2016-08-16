@@ -13,7 +13,7 @@
 
 	<div id="recipe-form"> 
 		
-		<form id="recipe-frm" method="post" action="index.php?page=add-recipe"> 
+		<form id="recipe-frm" method="post" action="index.php?page=addRecipe"> 
 
 			<div>
 				<label class="label">Title:</label> 
