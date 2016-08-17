@@ -32,4 +32,3 @@
 	<script type="text/javascript" src="js/accountValidation.js"></script> 
 	</body>
 </html> 
-<!-- test -->
