@@ -798,6 +798,10 @@ nav {
 .user { 
 	border-bottom: 1px solid #000; 
 	padding: 5px;
+} 
+
+.user:hover { 
+	background-color: #f2f2f2;
 }
 
 .uFirstName { 
@@ -821,35 +825,27 @@ nav {
 .uClass { 
 	display: inline-block;  
 	width: 19%;
+} 
+
+button {
+     background:none!important;
+     border:none; 
+     padding:0!important;
+     font: inherit; 
+     cursor: pointer;
+} 
+
+#recipe-settings li { 
+	display: inline; 
+	padding-right: 10px;
+} 
+
+#recipe-settings a { 
+	text-decoration: none; 
+	color: #000; 
+	list-style-type: none;
+} 
+
+#recipe-settings { 
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

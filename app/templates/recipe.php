@@ -10,7 +10,7 @@
 <?php if(isset($_SESSION['id'])): ?>
 	<?php if (isset($_GET['edit'])): ?>
 		<?php if($recipe['created_by'] == $_SESSION['id'] || $_SESSION['privilege'] == 'admin'): ?>
-			<ul>
+			<ul id="recipe-settings">
 				<li>
 					<a href="">Edit</a>
 				</li> 
@@ -53,7 +53,8 @@
 		</div>
 	</div>
 
-</div> 
+</div>  
+
 <script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
 <script>
 	$(document).ready(function(){

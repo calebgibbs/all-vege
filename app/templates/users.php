@@ -7,6 +7,7 @@
 ?> 
 <?= $this->insert('panelNav') ?>
 <div id="page-setup">
+	<?php $totalUsers = 0; ?>
 	<h1>Users</h1>  
 		<h3>Admins</h3> 
 			<div class="user-table">	
@@ -27,7 +28,8 @@
 							</form>
 							</span> 
 						</div>	 
-					<?php endif ?>
+						<?php $totalUsers++; ?>
+					<?php endif ?> 
 				<?php endforeach ?> 
 			</div> 
 		<h3>Moderators</h3> 
@@ -49,6 +51,7 @@
 							</form>
 							</span> 
 						</div>	 
+						<?php $totalUsers++; ?>
 					<?php endif ?>
 				<?php endforeach ?> 
 			</div> 
@@ -71,7 +74,9 @@
 							</form>
 							</span> 
 						</div>	 
+						<?php $totalUsers++; ?>
 					<?php endif ?>
 				<?php endforeach ?> 
-			</div>
+			</div>  
+		<p>There are <?= $totalUsers ?> users</p>
 </div>
