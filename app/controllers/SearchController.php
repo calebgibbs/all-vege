@@ -25,10 +25,20 @@ class SearchController extends PageController {
 
 		$this->data['searchTerm'] = $searchTerm; 
 
-		$sql = "SELECT id, title AS score_title, description AS score_description"
+		$sql = "SELECT id, title AS score_title, description AS score_description 
+				FROM recipes 
+				WHERE 
+					title LIKE '%$searchTerm%' OR  
+					description LIKE '%$searchTerm%'
+				ORDER BY score_title ASC";   
 
+		$result = $this->dbc->query($sql);
 
+		if( ! $result || $result->num_rows == 0) {
+			$this->data['searchResults'] = "No results";
 
-
-} 
+		}else{
+			$this->data['searchResults'] = $result->fetch_all(MYSQLI_ASSOC);
+		}
+	} 
 }

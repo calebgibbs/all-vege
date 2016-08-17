@@ -8,18 +8,20 @@
 	]); 
 ?>  
 <?php if(isset($_SESSION['id'])): ?>
-	<?php if($recipe['created_by'] == $_SESSION['id'] || $_SESSION['privilege'] == 'admin'): ?>
-		<ul>
-			<li>
-				<a href="">Edit</a>
-			</li> 
-			<li>
-				<button id="del-recipe" href="index.php">Delete</button> 
-				<div id="del-recipe-option">
-					<a href="<?= $_SERVER['REQUEST_URI'] ?>&delete">Yes</a> / <button id="no-button">No</button>
-				</div>
-			</li>
-		</ul>
+	<?php if (isset($_GET['edit'])): ?>
+		<?php if($recipe['created_by'] == $_SESSION['id'] || $_SESSION['privilege'] == 'admin'): ?>
+			<ul>
+				<li>
+					<a href="">Edit</a>
+				</li> 
+				<li>
+					<button id="del-recipe" href="index.php">Delete</button> 
+					<div id="del-recipe-option">
+						<a href="<?= $_SERVER['REQUEST_URI'] ?>&delete">Yes</a> / <button id="no-button">No</button>
+					</div>
+				</li>
+			</ul>
+		<?php endif; ?>
 	<?php endif; ?>
 <?php endif; ?>
 <div id="recipe">

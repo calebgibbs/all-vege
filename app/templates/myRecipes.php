@@ -15,7 +15,7 @@
 		<span id="rec-title"><b>Title</b></span><span id="rec-desc"><b>Description</b></span>
 	</div>
 	<?php foreach($allRecipes as $item):  ?> 
-		<a href="index.php?page=recipe&recipeid=<?= $item['id'] ?>">
+		<a href="index.php?page=recipe&recipeid=<?= $item['id'] ?>&edit">
 			<div class="recipe-results">
 				<span id="rec-title"><?= $item['title'] ?> </span><span id="rec-desc"><?= $item['description'] ?></span>
 			</div> 

@@ -23,16 +23,7 @@
 
 			<div>
 				<label class="label">Description:</label> 
-				<textarea rows="4" cols="50" name="desc" placeholder="Describe this recipe..."><ul> 
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-	<li></li>
-</ul>
-
-					<?= isset($_POST['desc']) ? $_POST['desc'] : '' ?>
-				</textarea>
+				<textarea rows="4" cols="50" name="desc" placeholder="Describe this recipe..."><?= isset($_POST['desc']) ? $_POST['desc'] : '' ?></textarea>
 				<?=  isset($descMessage) ? $descMessage : '' ?>
 			</div> 
 

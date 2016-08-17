@@ -611,13 +611,15 @@ nav {
 }
 
 .result-content { 
-	padding: 10px;
+	padding: 10px; 
+	min-height: 150px;
 } 
 
 .result-img { 
 	display: inline-block; 
 	float: left; 
-	padding-right: 10px;
+	padding-right: 10px; 
+	padding-bottom: 5px;
 } 
 
 .result-desc { 
