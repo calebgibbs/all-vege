@@ -97,13 +97,13 @@ class SignupController extends PageController{
 					VALUES ('$filteredFirstName', '$filteredLastName', '$filteredEmail', '$hash')"; 
 			$this->dbc->query($sql);  
 
-			// $_SESSION['id'] = $this->dbc->insert_id;
-			// $_SESSION['first_name'] = $this->dbc->insert_first_name; 
-			// $_SESSION['last_name'] = $this->dbc->insert_last_name; 
-			// $_SESSION['email'] = $this->dbc->insert_email;
-			// $_SESSION['privilege'] = 'user'; 
+			$_SESSION['id'] = $this->dbc->insert_id;
+			$_SESSION['first_name'] = $filteredFirstName; 
+			$_SESSION['last_name'] = $filteredLastName; 
+			$_SESSION['email'] = $filteredEmail;
+			$_SESSION['privilege'] = 'user'; 
 
-			header('Location: index.php?page=login');
+			header('Location: index.php?page=account'); 
 		}
 	}
 

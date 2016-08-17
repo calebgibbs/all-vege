@@ -31,7 +31,8 @@ class AccountController extends PageController {
 
 	private function updateFirstName() { 
 		$totalErrors = 0;  
-		$firstName = trim($_POST['first-name']);  
+		$firstName = trim($_POST['first-name']); 
+		$firstName = ucfirst($firstName);  
 
 		if(strlen($firstName) == 0) { 
 			$this->data['contactMessage'] = '<p style="color:red;">You must enter a first name</p>';
@@ -47,7 +48,7 @@ class AccountController extends PageController {
 		if ($totalErrors === 0) { 
 			
 			$firstName = $this->dbc->real_escape_string($firstName); 
- 
+ 			
  			$userID = $_SESSION['id'];
  
  			$sql = "UPDATE users
@@ -55,14 +56,16 @@ class AccountController extends PageController {
  					WHERE id = $userID"; 
 
  			$this->dbc->query( $sql ); 
- 			$this->data['contactMessage'] = '<p style="color:green;">Your first name has been updated please <a href="index.php?page=logout">log out</a> and back in for these changes to take effect</p>'; 
+ 			$_SESSION['first_name'] = $firstName;  
+ 			$this->data['contactMessage'] = '<p style="color:green;">Your first name has been updated!</p>'; 
  			
 		}
 	} 
 
 	private function updateLastname() { 
 		$totalErrors = 0; 
-		$lastName = trim($_POST['last-name']);  
+		$lastName = trim($_POST['last-name']); 
+		$lastName = ucfirst($lastName);  
 
 		if(strlen($lastName) == 0) { 
 			$this->data['contactMessage'] = '<p style="color:red;">You must enter a last name</p>';
@@ -86,7 +89,8 @@ class AccountController extends PageController {
  					WHERE id = $userID"; 
 
  			$this->dbc->query( $sql ); 
- 			$this->data['contactMessage'] = '<p style="color:green;">Your last name has been updated please <a href="index.php?page=logout">log out</a> and back in for these changes to take effect</p>'; 
+ 			$this->data['contactMessage'] = '<p style="color:green;">Your last name has been updated!</p>';  
+ 			$_SESSION['last_name'] = $lastName;
  			
 		}
 
@@ -95,7 +99,8 @@ class AccountController extends PageController {
 
 	private function updateEmail() { 
 		$totalErrors = 0; 
-		$email = trim($_POST['email']); 
+		$email = trim($_POST['email']);  
+		$email = lcfirst($email);
 
 		if (strlen($email) == 0) {
 			$this->data['contactMessage'] = '<p style="color:red;">You must enter a new email address</p>';
@@ -129,8 +134,8 @@ class AccountController extends PageController {
  					WHERE id = '$userID'";   
  			$this->dbc->query( $sql ); 
 
- 			$this->data['contactMessage'] = '<p style="color:green;">Your email address has been updated. Please <a href="index.php?page=logout">log out</a> and back in with 
- 			your new email address for these changes to take effect</p>';		
+ 			$this->data['contactMessage'] = '<p style="color:green;">Your email address has been updated!</p>';	 
+ 			$_SESSION['email'] = $email;	
 		} 
 	} 
 
@@ -181,7 +186,7 @@ class AccountController extends PageController {
  					WHERE id = '$userID'";   
  			$this->dbc->query( $sql ); 
 
- 			$this->data['contactMessage'] = '<p style="color:green;">Your password has been updated</p>';
+ 			$this->data['contactMessage'] = '<p style="color:green;">Your password has been updated!</p>';
 
 		}
 	}
