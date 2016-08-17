@@ -34,14 +34,31 @@ class UserController extends PageController {
 	} 
 
 	private function changeUserPrivilege() {
-		$updatePrivilege = $_POST['change-class']; 
+		$selected = $_POST['change-class']; 
 
-		if ($updatePrivilege == 'admin') {
-			die('Changing user to an admin');
-		}elseif($updatePrivilege == 'moderator') { 
-			die('making user a moderator');
-		}elseif($updatePrivilege == 'user') { 
-			die('making user account');
+		$userID = substr($selected, -1); 
+
+		$newClass = substr($selected, 0, -1);
+
+		if ($newClass == 'admin') {
+			
+			$sql = "UPDATE users
+ 					SET privilege = '$newClass'
+ 					WHERE id = $userID";  
+ 			$this->dbc->query( $sql ); 
+
+		}elseif($newClass == 'moderator') {  
+			$sql = "UPDATE users
+ 					SET privilege = '$newClass'
+ 					WHERE id = $userID"; 
+ 			$this->dbc->query( $sql );
+			
+		}elseif($newClass == 'user') {  
+			$sql = "UPDATE users
+ 					SET privilege = '$newClass'
+ 					WHERE id = $userID"; 
+ 			$this->dbc->query( $sql );
+			
 		} 
 
 

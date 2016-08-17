@@ -17,11 +17,11 @@
 							<span class="uLastName"><?= $item['last_name'] ?></span> 
 							<span class="uEmail"><?= $item['email'] ?></span> 
 							<span class="uClass">
-							<form method="post" action="#">
+							<form action="index.php?page=users" method="post">
 								<select name="change-class">
-									<option name="make-admin" value="admin">Admin</option> 
-									<option name="make-moderator" value="moderator">Moderator</option> 
-									<option name="make-user" value="user">User</option>
+									<option value="admin<?= $item['id'] ?>">Admin</option> 
+									<option value="moderator<?= $item['id'] ?>">Moderator</option> 
+									<option value="user<?= $item['id'] ?>">User</option>
 								</select> 
 								<input type="submit" value="Change Privilege">
 							</form>
@@ -39,11 +39,11 @@
 							<span class="uLastName"><?= $item['last_name'] ?></span> 
 							<span class="uEmail"><?= $item['email'] ?></span> 
 							<span class="uClass">
-							<form method="post" action="#">
+							<form action="index.php?page=users" method="post">
 								<select name="change-class">
-									<option name="make-moderator" value="moderator">Moderator</option>
-									<option name="make-admin" value="admin">Admin</option>  
-									<option name="make-user" value="user">User</option>
+									<option value="moderator<?= $item['id'] ?>">Moderator</option> 
+									<option value="admin<?= $item['id'] ?>">Admin</option> 
+									<option value="user<?= $item['id'] ?>">User</option>
 								</select> 
 								<input type="submit" value="Change Privilege">
 							</form>
@@ -61,11 +61,11 @@
 							<span class="uLastName"><?= $item['last_name'] ?></span> 
 							<span class="uEmail"><?= $item['email'] ?></span> 
 							<span class="uClass">
-							<form method="post" action="#">
-								<select name="change-class" name="hello">
-									<option name="make-user" value="user">User</option>
-									<option name="make-moderator" value="moderator">Moderator</option> 
-									<option name="make-admin" value="admin">Admin</option>
+							<form action="index.php?page=users" method="post">
+								<select name="change-class">
+									<option value="user<?= $item['id'] ?>">User</option>
+									<option value="moderator<?= $item['id'] ?>">Moderator</option> 
+									<option value="admin<?= $item['id'] ?>">Admin</option>
 								</select> 
 								<input type="submit" value="Change Privilege">
 							</form>
