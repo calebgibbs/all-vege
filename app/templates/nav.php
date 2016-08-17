@@ -12,7 +12,7 @@
 				<span id="search-bar">
 					<form method="post" action="index.php?page=search">
 						<input type="text" name="search-bar" placeholder="Search" id="search">
-						<input type="submit" name="search" id="search-button" value="Search">
+						<!-- <input type="submit" name="search" id="search-button" value="Search"> -->
 					</form>
 				</span>
 		</span> 
