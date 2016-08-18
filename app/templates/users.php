@@ -33,7 +33,7 @@
 				<?php endforeach ?> 
 			</div>  
 			<?php if ($totalUsers == 0): ?> 
-				<p style="color:red;"><b>Attention:</b> <i>You cannot remove all users from this website. Please assign a used to be an admin</i></p>
+				<p style="color:red;"><b>Attention:</b> <i>You cannot remove all users from this website. Please assign a user to be an admin</i></p>
 				<?php endif; ?>
 		<h3>Moderators</h3> 
 			<div class="user-table">	
