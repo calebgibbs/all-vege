@@ -12,32 +12,78 @@ class RecipeController extends PageController {
 			$this->deleteRecipe();
 		}
 
-		$this->getRecipeData(); 
+		if (isset($_POST['new-comment'])) {
+			$this->addComment();
+		}
+
+		$this->getRecipeData();  
+
+
 
 	} 
 
-		public function buildHTML() { 
+	public function buildHTML() { 
 		echo $this->plates->render('recipe', $this->data);
 	} 
 
 	private function getRecipeData() { 
-		//filter the ID 
 		$recipeID = $this->dbc->real_escape_string( $_GET['recipeid'] ); 
-
-		//get infromation about this recipe 
 		$sql = "SELECT * 
 				FROM recipes 
 				WHERE id = '$recipeID'"; 
 		
 		$result = $this->dbc->query($sql); 
-		// make sure it worked 
 		if( !$result || $result->num_rows == 0) { 
 			header('Location: index.php?page=404');
-		}else { 
-			//got a reult from the database. 
+		}else {  
 			$this->data['recipe'] = $result->fetch_assoc();
+		} 
+
+		$sql = "SELECT comment, first_name, last_name  
+				FROM comments 
+				JOIN users 
+				ON comments.created_by = users.id
+				WHERE recipe_id = $recipeID"; 
+
+		$result = $this->dbc->query($sql); 
+
+		$this->data['allComments'] = $result->fetch_all(MYSQLI_ASSOC); 
+
+		
+	}  
+
+	private function addComment() {
+		$totalErrors = 0; 
+		$comment = trim($_POST['new-comment']); 
+
+		if (strlen($comment) == 0) {
+			$totalErrors++; 
 		}
-	} 
+
+		if (strlen($comment) > 1000) {
+			$totalErrors++; 
+			$this->data['commentMessage'] = '<p style="color:red;">This comment is too big, 
+			please limit your comment to 1,000 characers</p>';
+		} 
+
+		if ($totalErrors == 0) {
+			
+			$comment = $this->dbc->real_escape_string($comment);  
+			$userId = $_SESSION['id'];
+			$recipeId = $this->dbc->real_escape_string($_GET['recipeid']);
+			
+			$sql = "INSERT INTO comments (comment, created_by, recipe_id)
+					VALUES ('$comment', $userId, $recipeId)"; 
+
+			$this->dbc->query($sql); 
+
+			// if(){ 
+
+			// } 
+
+
+		}
+	}
 
 	private function deleteRecipe() { 
 		$this->mustBeModerator(); 
@@ -55,7 +101,7 @@ class RecipeController extends PageController {
 		$this->dbc->query($sql);   
 		header('Location: index.php?page=home'); 
 		die();
-	}
+	} 
 } 
 
 

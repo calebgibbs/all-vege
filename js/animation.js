@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	
 	$('#search-control').click(function(){
 		$('#search-s').toggle({"display" : "none"}); 
 		$('#search-bar').toggle({"display" : "inline-block"}); 
@@ -18,7 +19,10 @@ $(document).ready(function(){
 
 	$('.controller').click(function(){
 		$(this).next('.content').slideToggle({"display" : "block"});
-	}); 
+	});  
 
+	$('#del-recipe, #no-button').click(function(){
+		$('#del-recipe-option').toggle();
+	});
 	
 });

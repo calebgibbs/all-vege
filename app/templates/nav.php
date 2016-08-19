@@ -18,7 +18,7 @@
 		</span> 
 		<?php if(isset($_SESSION['id'])): ?>
 		<span id="account" class="clicked">
-			<img src="http://placehold.it/40x40"> <span id="acc-name"><?= $_SESSION['first_name'] ?></span>
+			<img src="http://placehold.it/40x40"> <span id="acc-name"><?= htmlentities($_SESSION['first_name']) ?></span>
 		</span> 
 	</div> 
 	<div class="mod-nav" id="acc-box"> 

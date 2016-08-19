@@ -51,15 +51,51 @@
 				<p><?= $recipe['method'] ?></p>
 			</article>
 		</div>
+	</div> 
+	<div id="comments">
+		
+		<?php foreach( $allComments as $comment): ?>
+			<div class="comment">
+				<div class="comment-content">
+					<div class="comment-img"> 
+						<img src="http://placehold.it/50x50">
+					</div> 
+					<div class="comment-decs">
+						<article>
+							<h4><?= htmlentities($comment['first_name']) ?>  <?= htmlentities($comment['last_name']) ?></h4> 
+							<p><?= htmlentities($comment['comment']) ?></p>
+						</article>
+					</div>  
+				</div>
+			</div> 
+		<?php endforeach; ?>  
+
+		  
+
+		
+
+
+<div id="leaveAcomment">
+	<?php if(isset($_SESSION['id'])): ?>
+		<form id="leave-comment" method="post" action="index.php?page=recipe&recipeid=<?= $_GET['recipeid'] ?>" >
+			<div>
+				<label id="commenter-name"><b><?= $_SESSION['first_name'] ?>  <?= $_SESSION['last_name'] ?>:</b></label>
+				<textarea name="new-comment" placeholder="Write a comment"></textarea> 
+			</div> 
+			<?php if( isset($commentMessage) ): ?>
+        		<?= $commentMessage ?>
+       		<?php endif; ?> 
+			<input type="submit" value="Comment">
+		</form>  
+	<?php endif; ?>
+	<?php if(!isset($_SESSION['id'])): ?> 
+		<p>You must <a href="index.php?page=login">log in</a> to leave a comment</p>
+	<?php endif; ?>
+</div>
+
+		
+
 	</div>
+</div> 
 
-</div>  
 
-<script type="text/javascript" src="js/jquery-2.2.3.min.js"></script>
-<script>
-	$(document).ready(function(){
-		$('#del-recipe, #no-button').click(function(){
-			$('#del-recipe-option').toggle();
-		});
-	});
-</script>
