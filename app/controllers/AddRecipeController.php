@@ -24,7 +24,8 @@ class AddRecipeController extends PageController {
 		$desc  = trim($_POST['desc']);  
 		$ingredients = trim($_POST['ingredients']); 
 		$method = trim($_POST['method']); 
-		$tags = isset($_POST['tags']);
+		$tags = $_POST['tags']; 
+		$serves = $_POST['serves'];   
 
 		if(strlen( $title ) == 0 ) { 
 			$this->data['titleMessage'] = '<p style="color:red;">Title is required</p>';
@@ -59,22 +60,27 @@ class AddRecipeController extends PageController {
 			$totalErrors++;
 		} 
 
-		if($totalErrors == 0) {  
-				//filter the data  
+		if($totalErrors == 0) {    
 			$title = $this->dbc->real_escape_string($title);
 			$desc = $this->dbc->real_escape_string($desc);
 			$ingredients = $this->dbc->real_escape_string($ingredients);
-			$method = $this->dbc->real_escape_string($method);  
+			$method = $this->dbc->real_escape_string($method);
+			// $tags = $this->dbc->real_escape_string($tags);  
+  
+			$userID = $_SESSION['id']; 
 
-	 
-			//get id of logged in user   
-			$userID = $_SESSION['id'];
 
-			//insert into the sql  
-			$sql = "INSERT INTO recipes (title, description, ingredients, method, created_by) 
-					VALUES ('$title', '$desc', '$ingredients', '$method', $userID)";   
+ 
+			$sql = "INSERT INTO recipes (title, description, ingredients, method, serves, created_by) 
+					VALUES ('$title', '$desc', '$ingredients', '$method', $serves, $userID)";   
 
-			$this->dbc->query($sql);
+			$this->dbc->query($sql); 
+
+			foreach ($tags as $tag) {
+				$sql = "INSERT INTO recipes (tags) 
+						VALUES ('breakfast')"; 
+				$this->dbc->query($sql);
+			}
 
 			if($this->dbc->affected_rows) { 
 				$this->data['postMessage'] = '<p style="color:green"><b>Success! New recipe has been added</b></p>';

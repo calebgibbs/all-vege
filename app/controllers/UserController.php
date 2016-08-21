@@ -31,23 +31,12 @@ class UserController extends PageController {
 		
 		$selected = $_POST['change-class']; 
 		$userID = intval(preg_replace('/[^0-9]+/', '', $selected)); 
-		$newClass = preg_replace("/[^a-z]+/", "", $selected); 
-		
-		if ($newClass == 'admin') {
-			$sql = "UPDATE users
- 					SET privilege = '$newClass'
- 					WHERE id = $userID";  
- 			$this->dbc->query( $sql ); 
-		}elseif($newClass == 'moderator') {  
-			$sql = "UPDATE users
- 					SET privilege = '$newClass'
- 					WHERE id = $userID"; 
- 			$this->dbc->query( $sql );
-		}elseif($newClass == 'user') {  
-			$sql = "UPDATE users
- 					SET privilege = '$newClass'
- 					WHERE id = $userID"; 
- 			$this->dbc->query( $sql );
-		} 
+		$newClass = preg_replace("/[^a-z]+/", "", $selected);  
+
+		$sql = "UPDATE users
+ 				SET privilege = '$newClass'
+ 				WHERE id = $userID"; 
+
+ 		$this->dbc->query( $sql );
 	}
 }

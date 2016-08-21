@@ -44,15 +44,15 @@
 				
 				<div id="tags">
 					<div id="tag-left">
-						<input type="checkbox" name="tags" value="sides"> Side dish <br>
-						<input type="checkbox" name="tags" value="breakfast"> Breakfast <br> 
-						<input type="checkbox" name="tags" value="lunch"> Lunch <br>
-						<input type="checkbox" name="tags" value="dinner"> Dinner <br>
+						<input type="checkbox" name="tags[]" value="sides"> Side dish <br>
+						<input type="checkbox" name="tags[]" value="breakfast"> Breakfast <br> 
+						<input type="checkbox" name="tags[]" value="lunch"> Lunch <br>
+						<input type="checkbox" name="tags[]" value="dinner"> Dinner <br>
 					</div> 
 					<div id="tag-right">
-						<input type="checkbox" name="tags" value="dessert"> Dessert <br>
-						<input type="checkbox" name="tags" value="baking"> Baked Goods <br>
-						<input type="checkbox" name="tags" value="beverage"> Beverage <br> 
+						<input type="checkbox" name="tags[]" value="dessert"> Dessert <br>
+						<input type="checkbox" name="tags[]" value="baking"> Baked Goods <br>
+						<input type="checkbox" name="tags[]" value="beverage"> Beverage <br> 
 					</div>  
 				</div>
 				<?=  isset($tagsMessage) ? $tagsMessage : '' ?>

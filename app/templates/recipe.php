@@ -54,11 +54,17 @@
 	</div> 
 	<div id="comments">
 		
-		<?php foreach( $allComments as $comment): ?>
+		<?php foreach( $allComments as $comment): ?> <!-- $comment['profile_picture'] -->
 			<div class="comment">
 				<div class="comment-content">
 					<div class="comment-img"> 
-						<img src="http://placehold.it/50x50">
+						<?php 
+							if($comment['profile_picture'] == ''){
+								$comment['profile_picture'] = "default.png";
+							}
+						 ?>
+
+						<img src="images/uploads/account-profiles/comment/<?= $comment['profile_picture'] ?>">
 					</div> 
 					<div class="comment-decs">
 						<article>

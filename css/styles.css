@@ -655,7 +655,7 @@ nav {
 
 #ingredients { 
 	width: 28%; 
-	min-height: 300px;  
+	/*min-height: 300px; */ 
 	display: inline-block;
 	vertical-align:top; 
 } 
@@ -666,8 +666,8 @@ nav {
 
 #method { 
 	width: 69%; 
-	min-height: 300px; 
-	max-height: 300px; 
+	/*min-height: 300px; 
+	max-height: 300px;*/ 
 	display: inline-block;
 	vertical-align:top;	 
 }  
@@ -861,7 +861,11 @@ button {
 	float: left; 
 	padding-right: 10px; 
 	padding-bottom: 5px;
-} 
+}  
+
+.comment-img img { 
+	border: 1px solid #999;
+}
 
 .comment-desc { 
 	display: inline-block; 

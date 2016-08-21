@@ -18,16 +18,27 @@
 		</span> 
 		<?php if(isset($_SESSION['id'])): ?>
 		<span id="account" class="clicked">
-			<img src="http://placehold.it/40x40"> <span id="acc-name"><?= htmlentities($_SESSION['first_name']) ?></span>
+			
+			<?php if( $_SESSION['profile_picture'] == '' ): ?>
+			<img src="images/uploads/account-profiles/thumbnail/default.png"> 
+			<?php endif; ?> 
+			<?php if( $_SESSION['profile_picture'] != '' ): ?>
+			<img src="images/uploads/account-profiles/thumbnail/<?= $_SESSION['profile_picture'] ?>"> 
+			<?php endif; ?>
+			<span id="acc-name"><?= htmlentities($_SESSION['first_name']) ?></span>
 		</span> 
 	</div> 
 	<div class="mod-nav" id="acc-box"> 
 		<ul>
 			<li><a href="index.php?page=logout"><i class="fa fa-sign-out"></i> Log out</a></li>
 			<li><a href="index.php?page=account"><i class="fa fa-user"></i> My Account</a></li>
-	<?php if($_SESSION['privilege'] == 'admin' || $_SESSION['privilege'] == 'moderator'): ?>					
-			
+			<?php if($_SESSION['privilege'] == 'moderator'): ?>			
+			<li><a href="index.php?page=settings"><i class="fa fa-cog"></i> Manage Recipes</a></li>
+			<?php endif; ?>
+			<?php if($_SESSION['privilege'] == 'admin'): ?>
 			<li><a href="index.php?page=settings"><i class="fa fa-cog"></i> Site Maintenance</a></li> 
+			<?php endif; ?>
+			<?php if($_SESSION['privilege'] == 'admin' || $_SESSION['privilege'] == 'moderator'): ?>
 			<li><a href="index.php?page=help"><i class="fa fa-info-circle"></i> Help</a></li> 
 		</ul> 
 

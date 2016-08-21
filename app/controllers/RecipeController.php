@@ -39,7 +39,7 @@ class RecipeController extends PageController {
 			$this->data['recipe'] = $result->fetch_assoc();
 		} 
 
-		$sql = "SELECT comment, first_name, last_name  
+		$sql = "SELECT comment, first_name, last_name, profile_picture  
 				FROM comments 
 				JOIN users 
 				ON comments.created_by = users.id
@@ -70,18 +70,13 @@ class RecipeController extends PageController {
 			
 			$comment = $this->dbc->real_escape_string($comment);  
 			$userId = $_SESSION['id'];
+			$userImage = $_SESSION['profile_picture'];
 			$recipeId = $this->dbc->real_escape_string($_GET['recipeid']);
 			
 			$sql = "INSERT INTO comments (comment, created_by, recipe_id)
 					VALUES ('$comment', $userId, $recipeId)"; 
 
 			$this->dbc->query($sql); 
-
-			// if(){ 
-
-			// } 
-
-
 		}
 	}
 
@@ -99,7 +94,7 @@ class RecipeController extends PageController {
 		}
 
 		$this->dbc->query($sql);   
-		header('Location: index.php?page=home'); 
+		header('Location: index.php?page=myRecipes'); 
 		die();
 	} 
 } 

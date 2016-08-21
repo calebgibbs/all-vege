@@ -8,7 +8,15 @@
 <div id="page"> 
 	
 	<div id="account-overview"> 
-		<img src="http://placehold.it/250x250"> 
+		
+		<?php if( $_SESSION['profile_picture'] == '' ): ?>
+		<img src="images/uploads/account-profiles/account/default.png" alt=""> 
+		<?php endif; ?> 
+		
+		<?php if( $_SESSION['profile_picture'] != '' ): ?> 
+		<img src="images/uploads/account-profiles/account/<?= $_SESSION['profile_picture'] ?>" alt=""> 
+		<?php endif; ?>
+		
 		<span id="users-name"><?= $_SESSION['first_name'] ?> <?= $_SESSION['last_name'] ?></span> 
 		<div id="account-message">
 		
@@ -27,9 +35,10 @@
 		<h2 class="controller">
 			<span>Change profile picture</span><span class="edit">Edit</span>
 		</h2> 
-			<form class="content" action="index.php?page=account" method="post" >
-				<input type="file" name="pic" accept="image/*">
-  				<input type="submit" value="Save" name="update-profile-picture">
+			<form class="content" action="index.php?page=account" method="post" enctype="multipart/form-data">
+				<label>Upload a new profile picture: </label>
+				<input type="file" name="image" id="image">
+  				<input type="submit" name="image" value="Save" name="update-profile-picture">
   			</form>	  
 
 		<h2 class="controller">

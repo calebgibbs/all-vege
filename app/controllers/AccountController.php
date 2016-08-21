@@ -1,11 +1,19 @@
-<?php 
+<?php  
+
+use Intervention\Image\ImageManager;
 
 class AccountController extends PageController { 
+
+	private $acceptableImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/tiff'];
 
 	public function __construct($dbc) { 
 		parent::__construct(); 
 		$this->mustBeLoggedIn();
 		$this->dbc = $dbc;  
+
+		if (isset($_POST['image'])) {
+			$this->updateImage();
+		}
 
 		if(isset($_POST['update-first-name'])){ 
 			$this->updateFirstName();
@@ -25,9 +33,81 @@ class AccountController extends PageController {
 
 	}  
 
-	public function buildHTML() { 
+	public function buildHTML() {
 		echo $this->plates->render('account', $this->data);
 	} 
+
+	private function updateImage() { 
+		$totalErrors = 0; 
+
+		if( in_array( $_FILES['image']['error'], [1,3,4] ) ) {
+			$this->data['contactMessage'] = 'Image failed to upload';
+			$totalErrors++; 
+		}elseif( !in_array( $_FILES['image']['type'], $this->acceptableImageTypes ) ) {  
+			$this->data['contactMessage'] = "You must upload a valid image"; 
+			$totalErrors++;
+		}
+		
+
+		if($totalErrors == 0) {  
+			 
+			$manager = new ImageManager();
+
+			$image = $manager->make( $_FILES['image']['tmp_name'] );   
+
+			$fileExtension = $this->getFileExtension( $image->mime() ); 
+
+			$fileName = uniqid();
+
+			$image->save("images/uploads/account-profiles/original/$fileName$fileExtension"); 
+
+			$image->resize(250, 250); 
+			$image->save("images/uploads/account-profiles/account/$fileName$fileExtension");  
+
+		 	$image->resize(50, 50); 
+			$image->save("images/uploads/account-profiles/comment/$fileName$fileExtension");
+
+			$image->resize(40, 40); 
+			$image->save("images/uploads/account-profiles/thumbnail/$fileName$fileExtension"); 
+
+			$userID = $_SESSION['id'];
+
+			$sql = "UPDATE users
+ 					SET profile_picture = '$fileName$fileExtension'
+ 					WHERE id = $userID"; 
+ 			$this->dbc->query( $sql );  
+
+ 			$_SESSION['profile_picture'] = $fileName.$fileExtension;
+		}
+	} 
+
+	private function getFileExtension( $mimeType ) {
+
+		switch($mimeType) {
+
+			case 'image/png':
+				return '.png';
+			break;
+
+			case 'image/gif':
+				return '.gif';
+			break;
+
+			case 'image/jpeg':
+				return '.jpg';
+			break;
+
+			case 'image/bmp':
+				return '.bmp';
+			break;
+
+			case 'image/tiff':
+				return '.tif';
+			break;
+
+		}
+
+	}
 
 	private function updateFirstName() { 
 		$totalErrors = 0;  
