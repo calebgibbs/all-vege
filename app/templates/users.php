@@ -33,8 +33,12 @@
 				<?php endforeach ?> 
 			</div>  
 			<?php if ($totalUsers == 0): ?> 
+<<<<<<< HEAD
 				<p style="color:red;"> <i><b>Warning!</b> you cannot remove all admins from this site. 
 					Please give your account a user privilege or assign another user to take your place.</i></p>
+=======
+				<p style="color:red;"><b>Warning!</b> <i>You cannot remove all admins from this website. Please assign another user to be an admin</i></p>
+>>>>>>> e09070038592417b54985b5e11ec30ed2dcb2bf1
 				<?php endif; ?>
 		<h3>Moderators</h3> 
 			<div class="user-table">	
