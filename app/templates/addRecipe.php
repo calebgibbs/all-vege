@@ -40,28 +40,32 @@
 			</div> 
 
 			<div>
-				<label class="label tag-lab">Tags: </label> 
-				
 				<div id="tags">
-					<div id="tag-left">
-						<input type="checkbox" name="tags[]" value="sides"> Side dish <br>
-						<input type="checkbox" name="tags[]" value="breakfast"> Breakfast <br> 
-						<input type="checkbox" name="tags[]" value="lunch"> Lunch <br>
-						<input type="checkbox" name="tags[]" value="dinner"> Dinner <br>
-					</div> 
-					<div id="tag-right">
-						<input type="checkbox" name="tags[]" value="dessert"> Dessert <br>
-						<input type="checkbox" name="tags[]" value="baking"> Baked Goods <br>
-						<input type="checkbox" name="tags[]" value="beverage"> Beverage <br> 
-					</div>  
+					<label class="label">Category:</label>  
+					<select name="category">
+						<option value="0">-Please sleect-</option>
+						<option value="side">Side dish</option>
+						<option value="breakfast">Breakfast</option> 
+						<option value="lunch">Lunch</option>
+						<option value="dinner">Dinner</option>
+						<option value="dessert">Dessert</option>
+						<option value="baked">Baked goods</option>
+						<option value="beverage">Beverage</option>
+					</select> 
 				</div>
-				<?=  isset($tagsMessage) ? $tagsMessage : '' ?>
+				<?=  isset($categoryMessage) ? $categoryMessage : '' ?>
 			</div>  
 
 			<div>
 				<label class="label">Serves: </label> 
+
+				if(isset($_POST['serves']) && $_POST['serves'] == '0') { 
+			$this->data['serveMessage'] = '<p style="color:red">Please choose a serving option</p>'; 
+			$totalErrors++;
+		} 
+
 				<select name="serves">
-  					<option value="0"></option>
+  					<option value="0">-Please sleect-</option>
   					<option value="1">1</option>
   					<option value="2">2</option>
   					<option value="3">3</option>
@@ -79,6 +83,7 @@
 			<div>
 				<label class="label">Image </label>
 				<input type="file" name="pic" accept="image/*">
+				<?=  isset($serveMessage) ? $imageMessage : '' ?>
 			</div> 
 
 			<div>
