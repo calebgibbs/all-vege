@@ -61,7 +61,7 @@ class AccountController extends PageController {
 
 			$image->save("images/uploads/account-profiles/original/$fileName$fileExtension"); 
 
-			$image->resize(250, 250); 
+			$image->resize(300, 300); 
 			$image->save("images/uploads/account-profiles/account/$fileName$fileExtension");  
 
 		 	$image->resize(50, 50); 

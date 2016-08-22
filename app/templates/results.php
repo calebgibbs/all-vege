@@ -22,7 +22,7 @@
 				<div class="result">
 					<div class="result-content">
 						<div class="result-img"> 
-							<img src="http://placehold.it/150x150">
+							<img src="images/uploads/recipes/search/<?= $result['image'] ?>">
 						</div> 
 						<div class="result-decs">
 							<article>

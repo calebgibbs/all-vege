@@ -1,6 +1,10 @@
-<?php 
+<?php  
 
-class AddRecipeController extends PageController {  
+use Intervention\Image\ImageManager;
+
+class AddRecipeController extends PageController {   
+
+	private $acceptableImageTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/bmp', 'image/tiff'];
 
 	public function __construct($dbc) {
 		parent::__construct(); 
@@ -9,7 +13,7 @@ class AddRecipeController extends PageController {
 		$this->dbc = $dbc;	 
 		
 		if( isset($_POST['add-recipe'])) { 
-			$this->processNewRecipe();
+			$this->processNewRecipe(); 
 		}
 	} 
 
@@ -58,20 +62,44 @@ class AddRecipeController extends PageController {
 		if(isset($_POST['serves']) && $_POST['serves'] == '0') { 
 			$this->data['serveMessage'] = '<p style="color:red">Please choose a serving option</p>'; 
 			$totalErrors++;
-		} 
+		}  
+
+		if( in_array( $_FILES['image']['error'], [1,3,4] ) ) {
+			$this->data['imageMessage'] = '<p style="color:red">Image failed to upload</p>';
+			$totalErrors++; 
+		}elseif( !in_array( $_FILES['image']['type'], $this->acceptableImageTypes ) ) {  
+			$this->data['imageMessage'] = '<p style="color:red">You must upload a valid image</>'; 
+			$totalErrors++;
+		}
 
 		if($totalErrors == 0) {    
 			$title = $this->dbc->real_escape_string($title);
 			$desc = $this->dbc->real_escape_string($desc);
 			$ingredients = $this->dbc->real_escape_string($ingredients);
-			$method = $this->dbc->real_escape_string($method); 
+			$method = $this->dbc->real_escape_string($method);  
+
+			$manager = new ImageManager();
+
+			$image = $manager->make( $_FILES['image']['tmp_name'] );   
+
+			$fileExtension = $this->getFileExtension( $image->mime() ); 
+
+			$fileName = uniqid();
+
+			$image->save("images/uploads/recipes/original/$fileName$fileExtension"); 
+
+			$image->resize(250, 250); 
+			$image->save("images/uploads/recipes/recipe/$fileName$fileExtension");  
+
+		 	$image->resize(150, 150); 
+			$image->save("images/uploads/recipes/search/$fileName$fileExtension"); 
   
 			$userID = $_SESSION['id']; 
 
 
  
-			$sql = "INSERT INTO recipes (title, description, ingredients, method, category, serves, created_by) 
-					VALUES ('$title', '$desc', '$ingredients', '$method', '$category', $serves, $userID)";   
+			$sql = "INSERT INTO recipes (title, description, ingredients, method, category, serves, created_by, image) 
+					VALUES ('$title', '$desc', '$ingredients', '$method', '$category', $serves, $userID, '$fileName$fileExtension')";   
 
 			$this->dbc->query($sql); 
 
@@ -83,5 +111,31 @@ class AddRecipeController extends PageController {
 				Please contact the website owner to fix this problem</i></b></p>';
 			} 
 	} 
-}   
+} 
+
+private function getFileExtension( $mimeType ) {
+
+		switch($mimeType) {
+
+			case 'image/png':
+				return '.png';
+			break;
+
+			case 'image/gif':
+				return '.gif';
+			break;
+
+			case 'image/jpeg':
+				return '.jpg';
+			break;
+
+			case 'image/bmp':
+				return '.bmp';
+			break;
+
+			case 'image/tiff':
+				return '.tif';
+			break;
+		}
+	}   
 }

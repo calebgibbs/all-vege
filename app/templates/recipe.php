@@ -12,7 +12,7 @@
 		<?php if($recipe['created_by'] == $_SESSION['id'] || $_SESSION['privilege'] == 'admin'): ?>
 			<ul id="recipe-settings">
 				<li>
-					<a href="">Edit</a>
+					<a href="index.php?page=editRecipe&recipeid=<?= $recipe['id'] ?>">Edit</a>
 				</li> 
 				<li>
 					<button id="del-recipe" href="index.php">Delete</button> 
@@ -27,7 +27,7 @@
 <div id="recipe">
 	<div>
 		<div id="recipe-img"> 
-			<img src="http://placehold.it/300x300">
+			<img src="images/uploads/recipes/recipe/<?= $recipe['image'] ?>">
 		</div> 
 
 		<div id="recipe-head">
@@ -54,7 +54,7 @@
 	</div> 
 	<div id="comments">
 		
-		<?php foreach( $allComments as $comment): ?> <!-- $comment['profile_picture'] -->
+		<?php foreach( $allComments as $comment): ?> 
 			<div class="comment">
 				<div class="comment-content">
 					<div class="comment-img"> 
@@ -75,12 +75,6 @@
 				</div>
 			</div> 
 		<?php endforeach; ?>  
-
-		  
-
-		
-
-
 <div id="leaveAcomment">
 	<?php if(isset($_SESSION['id'])): ?>
 		<form id="leave-comment" method="post" action="index.php?page=recipe&recipeid=<?= $_GET['recipeid'] ?>" >
@@ -103,5 +97,3 @@
 
 	</div>
 </div> 
-
-

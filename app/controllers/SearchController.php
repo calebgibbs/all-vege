@@ -25,7 +25,7 @@ class SearchController extends PageController {
 
 		$this->data['searchTerm'] = $searchTerm; 
 
-		$sql = "SELECT id, title AS score_title, description AS score_description 
+		$sql = "SELECT id, title AS score_title, description AS score_description, image 
 				FROM recipes 
 				WHERE 
 					title LIKE '%$searchTerm%' OR  

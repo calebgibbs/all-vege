@@ -6,8 +6,11 @@
 			<?php if($_SESSION['privilege'] == 'admin'): ?>
 				<li><a href="index.php?page=allRecipes"><i class="fa fa-book"></i> All Recipes</a></li>
 				<li><a href="index.php?page=users"><i class="fa fa-users"></i> Manage Users</a></li> 
-			<?php endif; ?>
-
+			<?php endif; ?> 
+			<?php if($_GET['page'] == 'editRecipe'): ?> 
+			<li><a style="color:red;" href="<?= $_SERVER['REQUEST_URI'] ?>">
+				<i class="fa fa-pencil-square-o"></i> Edit Recipe</a></li>
+		<?php endif; ?>
 		</ul>
 	</div>
 </div>

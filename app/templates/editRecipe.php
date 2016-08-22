@@ -1,41 +1,83 @@
-<?php 
+<?php  
+	$title = "Edit ". $recipe['title'];
 	$this -> layout('master',[
-		'title'=>'Add Recipe', 
-		'desc' => 'Add a Recipe' 
+		'title'=> $title, 
+		'desc' => 'Edit this recipe' 
 
 	]); 
 ?> 
 <?= $this->insert('panelNav') ?>
 <div id="add-rec"> 
 	
-	<h1>Add a New Recipe</h1>  
+	<h1>Edit <?= $recipe['title'] ?></h1>  
 	<?=  isset($postMessage) ? $postMessage : '' ?>
 
 	<div id="recipe-form"> 
 		
-		<form id="recipe-frm" method="post" action="index.php?page=addRecipe" enctype="multipart/form-data"> 
+		<form id="recipe-frm" method="post" action="index.php?page=editRecipe&recipeid=<?= $recipe['id'] ?>" enctype="multipart/form-data"> 
 
 			<div>
 				<label class="label">Title:</label> 
-				<input type="text" name="title" id="title-input" placeholder="Title" value="<?= isset($_POST['title']) ? $_POST['title'] : '' ?>">
+				<input type="text" name="title" id="title-input" placeholder="Title" 
+				value="<?php
+						if (isset($_POST['title'])) {
+							if( $_POST['title'] == $recipe['title']) { 
+							echo $recipe['title'];
+						}else{ 
+							echo $_POST['title'];
+						}
+						}else{ 
+							echo $recipe['title'];
+						}
+					?>">
 				<?=  isset($titleMessage) ? $titleMessage : '' ?>
 			</div> 
 
 			<div>
 				<label class="label">Description:</label> 
-				<textarea rows="4" cols="50" name="desc" placeholder="Describe this recipe..."><?= isset($_POST['desc']) ? $_POST['desc'] : '' ?></textarea>
+				<textarea rows="4" cols="50" name="desc" placeholder="Describe this recipe..."><?php
+						if (isset($_POST['desc'])) {
+							if( $_POST['desc'] == $recipe['description']) { 
+							echo $recipe['description'];
+						}else{ 
+							echo $_POST['desc'];
+						}
+						}else{ 
+							echo $recipe['description'];
+						}
+					?></textarea>
 				<?=  isset($descMessage) ? $descMessage : '' ?>
 			</div> 
 
 			<div>
 				<label class="label">Ingredients:</label> 
-				<textarea rows="4" cols="50" name="ingredients" placeholder="Ingredients..."><?= isset($_POST['ingredients']) ? $_POST['ingredients'] : '' ?></textarea>
+				<textarea rows="4" cols="50" name="ingredients" placeholder="Ingredients..."><?php
+						if (isset($_POST['ingredients'])) {
+							if( $_POST['ingredients'] == $recipe['ingredients']) { 
+							echo $recipe['ingredients'];
+						}else{ 
+							echo $_POST['ingredients'];
+						}
+						}else{ 
+							echo $recipe['ingredients'];
+						}
+					?></textarea>
 				<?=  isset($ingrMessage) ? $ingrMessage : '' ?>
 			</div> 
 
 			<div>
 				<label class="label">Method:</label> 
-				<textarea rows="4" cols="50" name="method" placeholder="Method..."><?= isset($_POST['method']) ? $_POST['method'] : '' ?></textarea>
+				<textarea rows="4" cols="50" name="method" placeholder="Method..."><?php
+						if (isset($_POST['method'])) {
+							if( $_POST['method'] == $recipe['method']) { 
+							echo $recipe['method'];
+						}else{ 
+							echo $_POST['method'];
+						}
+						}else{ 
+							echo $recipe['method'];
+						}
+					?></textarea>
 				<?=  isset($methodMessage) ? $methodMessage : '' ?>
 			</div> 
 
@@ -84,7 +126,7 @@
 			</div> 
 
 			<div>
-				<input type="submit" name="add-recipe" value="Add Recipe">
+				<input type="submit" name="add-recipe" value="Save">
 			</div>
 
 		</form>

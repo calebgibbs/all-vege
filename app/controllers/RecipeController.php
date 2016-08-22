@@ -16,10 +16,7 @@ class RecipeController extends PageController {
 			$this->addComment();
 		}
 
-		$this->getRecipeData();  
-
-
-
+		$this->getRecipeData(); 
 	} 
 
 	public function buildHTML() { 
@@ -82,9 +79,31 @@ class RecipeController extends PageController {
 
 	private function deleteRecipe() { 
 		$this->mustBeModerator(); 
-		$admin = $_SESSION['privilege'] == 'admin'; 
+		$admin = $_SESSION['privilege'] == 'admin';  
+		$userPrivilege = $_SESSION['privilege'];
 		$userID = $_SESSION['id']; 
-		$recipeID = $this->dbc->real_escape_string($_GET['recipeid']); 
+		$recipeID = $this->dbc->real_escape_string($_GET['recipeid']);  
+
+		$sql = "SELECT image
+				FROM recipes
+				WHERE id = $recipeID"; 
+		if ( $userPrivilege != $admin ) {
+			$sql .= " AND created_by = $userID";
+		} 
+
+		$result = $this->dbc->query($sql); 
+
+		if( !$result || $result->num_rows == 0 ) {
+			return;
+		} 
+
+		$result = $result->fetch_assoc();
+
+		$filename = $result['image']; 
+
+		unlink("images/uploads/recipes/original/$filename");
+		unlink("images/uploads/recipes/recipe/$filename");
+		unlink("images/uploads/recipes/search/$filename");
 	
 		$sql = "DELETE FROM recipes
 				WHERE id = $recipeID"; 
@@ -95,7 +114,6 @@ class RecipeController extends PageController {
 
 		$this->dbc->query($sql);   
 		header('Location: index.php?page=myRecipes'); 
-		die();
 	} 
 } 
 
