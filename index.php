@@ -40,7 +40,17 @@ switch ($page) {
 	case 'search':
 		require 'app/controllers/SearchController.php';
 		$controller = new SearchController($dbc); 	
-	break; 
+	break;  
+
+	case 'sides':
+		require 'app/controllers/SidesController.php';
+		$controller = new SidesController($dbc);
+	break;  
+
+	case  'breakfast': 
+		require 'app/controllers/BreakfastController.php';
+		$controller = new BreakfastController($dbc);
+	break;
 
 	case 'recipe':
 		require 'app/controllers/RecipeController.php'; 

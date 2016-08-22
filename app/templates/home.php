@@ -15,13 +15,13 @@
 					<div id="right-box">	
 						
 						<div id="d2">
-							<a href="#">
+							<a href="index.php?page=sides">
 								<img src="images/entree.jpg">
 							</a>
 						</div> 
 						
 						<div id="d3">
-							<a href="#">
+							<a href="index.php?page=breakfast">
 								<img src="images/breakfast.jpg">
 							</a>
 						</div>

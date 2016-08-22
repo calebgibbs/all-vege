@@ -3,7 +3,6 @@
 class SearchController extends PageController { 
 
 	public function __construct($dbc) {
-
 		parent::__construct(); 
 		$this->dbc = $dbc; 
 		$this->getResults();	
