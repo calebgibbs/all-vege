@@ -10,31 +10,24 @@ class AccountController extends PageController {
 		parent::__construct(); 
 		$this->mustBeLoggedIn();
 		$this->dbc = $dbc;  
-
 		if (isset($_POST['image'])) {
 			$this->updateImage();
 		}
-
 		if(isset($_POST['update-first-name'])){ 
 			$this->updateFirstName();
 		} 
-
 		if(isset($_POST['update-last-name'])) { 
 			$this->updateLastname();
 		} 
-
 		if (isset($_POST['update-email'])) {
 			$this->updateEmail();
 		} 
-
 		if (isset($_POST['update-password'])) {
 			$this->updatePassword();
 		} 
-
 		if (isset($_POST['deactivate-account'])) {
 			$this->deleteAccountValidation();
 		}
-
 	}  
 
 	public function buildHTML() {
@@ -54,41 +47,37 @@ class AccountController extends PageController {
 		
 
 		if($totalErrors == 0) {  
-			 
-			if ($_SESSION['profile_picture'] != '') {
-				$fileName = $_SESSION['profile_picture']; 
+		
+			$userID = $_SESSION['id']; 
+
+			$sql = "SELECT profile_picture 
+					FROM users 
+					WHERE id = $userID"; 
+			$result = $this->dbc->query($sql);
+			$result = $result->fetch_assoc(); 	
+
+			if ($result['profile_picture']  != '') {
+				$fileName = $result['profile_picture']; 
 				unlink("images/uploads/account-profiles/original/$fileName");
 				unlink("images/uploads/account-profiles/account/$fileName");
 				unlink("images/uploads/account-profiles/comment/$fileName");
 				unlink("images/uploads/account-profiles/thumbnail/$fileName");
 			}
-
 			$manager = new ImageManager();
-
 			$image = $manager->make( $_FILES['image']['tmp_name'] );   
-
 			$fileExtension = $this->getFileExtension( $image->mime() ); 
-
 			$fileName = uniqid();
-
 			$image->save("images/uploads/account-profiles/original/$fileName$fileExtension"); 
-
 			$image->resize(300, 300); 
 			$image->save("images/uploads/account-profiles/account/$fileName$fileExtension");  
-
 		 	$image->resize(50, 50); 
 			$image->save("images/uploads/account-profiles/comment/$fileName$fileExtension");
-
 			$image->resize(40, 40); 
 			$image->save("images/uploads/account-profiles/thumbnail/$fileName$fileExtension"); 
-
-			$userID = $_SESSION['id'];
-
 			$sql = "UPDATE users
  					SET profile_picture = '$fileName$fileExtension'
  					WHERE id = $userID"; 
  			$this->dbc->query( $sql );  
-
  			$_SESSION['profile_picture'] = $fileName.$fileExtension;
 		}
 	} 
