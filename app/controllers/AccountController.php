@@ -29,6 +29,10 @@ class AccountController extends PageController {
 
 		if (isset($_POST['update-password'])) {
 			$this->updatePassword();
+		} 
+
+		if (isset($_POST['deactivate-account'])) {
+			$this->deleteAccountValidation();
 		}
 
 	}  
@@ -51,6 +55,14 @@ class AccountController extends PageController {
 
 		if($totalErrors == 0) {  
 			 
+			if ($_SESSION['profile_picture'] != '') {
+				$fileName = $_SESSION['profile_picture']; 
+				unlink("images/uploads/account-profiles/original/$fileName");
+				unlink("images/uploads/account-profiles/account/$fileName");
+				unlink("images/uploads/account-profiles/comment/$fileName");
+				unlink("images/uploads/account-profiles/thumbnail/$fileName");
+			}
+
 			$manager = new ImageManager();
 
 			$image = $manager->make( $_FILES['image']['tmp_name'] );   
@@ -188,7 +200,8 @@ class AccountController extends PageController {
 		} 
 
 		if( strlen($email) > 255 ) {
-			$this->data['contactMessage'] = '<p style="color:red;">Your email address is too long. Please enter a valid email address</p>';
+			$this->data['contactMessage'] = '<p style="color:red;">Your email address is too long. Please enter a valid email address
+			</p>';
 			$totalErrors++; 
 		} 
 
@@ -201,7 +214,8 @@ class AccountController extends PageController {
 		$result = $this->dbc->query($sql);
 
 		if( !$result || $result->num_rows > 0 ) {
-			$this->data['contactMessage'] = '<p style="color:red;">This email address is aready in use. Please enter a <i>new</i> email address</p>';
+			$this->data['contactMessage'] = '<p style="color:red;">This email address is aready in use. Please enter a <i>new</i> 
+			email address</p>';
 			$totalErrors++; 
 		}
 		
@@ -240,7 +254,8 @@ class AccountController extends PageController {
 		}  
 
 		if(strlen($currentPassword) == 0 || strlen($newPassword) == 0 || strlen($newPasswordAgain) == 0 ) {
-			$this->data['contactMessage'] = '<p style="color:red;"><b>Password not updated.</b> Please fill in the correct information</p>';	
+			$this->data['contactMessage'] = '<p style="color:red;"><b>Password not updated.</b> Please fill in the correct 
+			information</p>';	
 		}
 
 		if($newPassword != $newPasswordAgain) { 
@@ -269,27 +284,74 @@ class AccountController extends PageController {
  			$this->data['contactMessage'] = '<p style="color:green;">Your password has been updated!</p>';
 
 		}
-	}
+	} 
+
+	private function deleteAccountValidation() { 
+		$totalErrors = 0; 
+		$password = $_POST['password'];
+		$userID = $_SESSION['id']; 
+		$getPassword = "SELECT id, password 
+				FROM users
+				WHERE 
+					id = '$userID'"; 
+
+		$result = $this->dbc->query($getPassword); 
+
+		if (!isset($_POST['yes']) && strlen($password) == 0) {
+		 	return;
+		}else{
+			if (!isset($_POST['yes'])) {
+			$this->data['contactMessage'] = '<p style="color:red;">You must confirm that you wish to deactivate your account</p>'; 
+			$totalErrors++;
+			} 
+
+			if( $result->num_rows == 1 ) {
+				$userData = $result->fetch_assoc();  
+				$passwordResult = password_verify( $password, $userData['password'] ); 
+			}
+				if($passwordResult != true) { 
+				$this->data['contactMessage'] = '<p style="color:red;">Your password is incorrect</p>'; 
+				$totalErrors++; 
+				}
+		} 
+
+		if ($totalErrors == 0) { 
+
+			if( $_SESSION['profile_picture'] != '' ) {
+				$this->deleteImages();
+			}else{ 
+				$this->removeAccount();
+			}
+
+		}
+
+	} 
+
+	private function deleteImages() { 
+		$userID = $_SESSION['id']; 
+
+		$sql = "SELECT profile_picture 
+				FROM users
+				WHERE id = $userID"; 
+		$result = $this->dbc->query($sql);
+		$result = $result->fetch_assoc(); 
+
+		$fileName = $result['profile_picture'];    
+		
+		unlink("images/uploads/account-profiles/original/$fileName");
+		unlink("images/uploads/account-profiles/account/$fileName");
+		unlink("images/uploads/account-profiles/comment/$fileName");
+		unlink("images/uploads/account-profiles/thumbnail/$fileName");
+		
+		$this->removeAccount();
+	} 
+
+	private function removeAccount() {
+		$userID = $_SESSION['id'];
+		$sql = "DELETE FROM users
+				WHERE id = $userID";
+		$this->dbc->query($sql); 
+		header('Location: index.php?page=logout');
+	}  
+	
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -10,11 +10,11 @@
 		<script src="https://use.fontawesome.com/228e8d7980.js"></script>
 	</head> 
 	
-	<?php if($page != 'search' && $page != 'sides' && $page != 'breakfast'): ?>
+	<?php if($page != 'search' && $page != 'sides' && $page != 'breakfast' && $page != 'lunch'): ?>
 	<body>
 	<?php endif; ?>
 
-	<?php if($page != 'login' && $page != 'register' && $page != 'search' && $page != 'sides' && $page != 'breakfast'): ?>
+	<?php if($page != 'login' && $page != 'register'): ?>
 		<?= $this->insert('nav') ?> 
 	<?php endif; ?>
 

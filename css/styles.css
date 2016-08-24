@@ -847,12 +847,6 @@ button {
 	border-bottom: 1px solid #999;
 }   
 
-/*.comment:first-of-type { 
-	border-top: 1px solid #999;
-}*/
-
-
-
 .comment-content { 
 	padding: 10px; 
 } 
@@ -895,4 +889,27 @@ button {
 
 #leave-comment input { 
 	right: 0;
+}
+
+table{ 
+	width: 90%; 
+	margin: 0 auto;
+	border: 1px solid black;
+} 
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 5px;
+} 
+.recipe-data:hover{ 
+	background-color: #f2f2f2;
+	cursor: pointer;
+} 
+
+table#users-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+table#users-table tr:nth-child(odd) {
+    background-color: #fff;
 }

@@ -50,6 +50,31 @@ switch ($page) {
 	case  'breakfast': 
 		require 'app/controllers/BreakfastController.php';
 		$controller = new BreakfastController($dbc);
+	break; 
+
+	case 'lunch': 
+		require 'app/controllers/LunchController.php';
+		$controller = new LunchController($dbc); 
+	break;
+
+	case 'dinner': 
+		require 'app/controllers/DinnerController.php';
+		$controller = new DinnerController($dbc); 
+	break;
+
+	case 'baking': 
+		require 'app/controllers/BakingController.php';
+		$controller = new BakingController($dbc); 
+	break;
+
+	case 'dessert': 
+		require 'app/controllers/DessertController.php';
+		$controller = new DessertController($dbc); 
+	break;
+
+	case 'beverages': 
+		require 'app/controllers/BeverageController.php';
+		$controller = new BeverageController($dbc); 
 	break;
 
 	case 'recipe':

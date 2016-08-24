@@ -4,8 +4,7 @@
 		'desc' => 'view your search results' 
 	]); 
 ?>  
-<body id="search-bg"> 
-	<?= $this->insert('nav') ?>  
+<body id="search-bg">  
 	<div id="search-results">
 
 		<h1>Breakfast Recipes</h1>

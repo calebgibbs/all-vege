@@ -22,9 +22,7 @@
 		
 			<?php if( isset($contactMessage) ): ?>
         	<p> <?= $contactMessage ?> </p>
-        	<?php endif; ?>  
-
-		
+        	<?php endif; ?>	
 	</div>
 	</div>  
 
@@ -85,9 +83,9 @@
 			<span>Deactivate account</span><span class="edit">Edit</span>
 		</h2> 
 			<form class="content" action="index.php?page=account" method="post">
-				<span>I wish to deactivate my account <input type="checkbox"></span> 
+				<span>I wish to deactivate my account <input name="yes" type="checkbox"></span> 
 				<span>Please enter your password to confirm: </span>
-				<input type="password" placeholder="Password"> 
+				<input name="password" type="password" placeholder="Password"> 
 				<input type="submit" value="Confirm" name="deactivate-account">
 			</form> 
 

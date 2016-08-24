@@ -6,7 +6,6 @@
 	]); 
 ?>  
 <body id="search-bg"> 
-	<?= $this->insert('nav') ?>  
 	<div id="search-results">
 
 		<h1>Search results for "<i><?= $this->e($searchTerm) ?></i>"</h1>

@@ -104,11 +104,11 @@ class AddRecipeController extends PageController {
 			$this->dbc->query($sql); 
 
 			if($this->dbc->affected_rows) { 
-				$this->data['postMessage'] = '<p style="color:green"><b>Success! New recipe has been added</b></p>';
+				header('Location: index.php?page=myRecipes');
 			}else { 
 				$this->data['postMessage'] = '<p style="color:red"><b>Something went wrong! <br />
 				<i>This new recipe could not be processed <br />
-				Please contact the website owner to fix this problem</i></b></p>';
+				Please try again later</i></b></p>';
 			} 
 	} 
 } 

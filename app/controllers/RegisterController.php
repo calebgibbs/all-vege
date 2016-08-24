@@ -97,11 +97,14 @@ class SignupController extends PageController{
 					VALUES ('$filteredFirstName', '$filteredLastName', '$filteredEmail', '$hash')"; 
 			$this->dbc->query($sql);  
 
+
+
 			$_SESSION['id'] = $this->dbc->insert_id;
 			$_SESSION['first_name'] = $filteredFirstName; 
 			$_SESSION['last_name'] = $filteredLastName; 
 			$_SESSION['email'] = $filteredEmail;
 			$_SESSION['privilege'] = 'user'; 
+			$_SESSION['profile_picture'] = 'default.png'; 
 
 			header('Location: index.php?page=account'); 
 		}

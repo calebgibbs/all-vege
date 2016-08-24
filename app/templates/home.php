@@ -27,13 +27,13 @@
 						</div>
 						
 						<div id="d4">
-							<a href="#">
+							<a href="index.php?page=lunch">
 								<img src="images/lunch.jpg">
 							</a>
 						</div> 
 						
 						<div id="d5">
-							<a href="#">
+							<a href="index.php?page=dinner">
 								<img src="images/dinner.jpg">
 							</a>
 						</div>
@@ -42,19 +42,19 @@
 					<div id="bottom-box">
 						
 						<div id="d6">
-							<a href="#">
+							<a href="index.php?page=baking">
 								<img src="images/baking.jpg">
 							</a>
 						</div> 
 						
 						<div id="d7">
-							<a href="#">
+							<a href="index.php?page=dessert">
 								<img src="images/dessert.jpg">
 							</a>
 						</div> 
 						
 						<div id="d8">
-							<a href="#">
+							<a href="index.php?page=beverages">
 								<img src="images/drinks.jpg">
 							</a>
 						</div>

@@ -7,84 +7,87 @@
 ?> 
 <?= $this->insert('panelNav') ?>
 <div id="page-setup">
-	<?php $totalUsers = 0; ?>
-	<h1>Users</h1>  
-		<h3>Admins</h3> 
-			<div class="user-table">	
-				<?php foreach($allUsers as $user):  ?> 
-					<?php if($user['privilege'] == "admin" ): ?>
-						<div class="user">
-							<span class="uFirstName"><?= $user['first_name'] ?></span> 
-							<span class="uLastName"><?= $user['last_name'] ?></span> 
-							<span class="uEmail"><?= $user['email'] ?></span> 
-							<span class="uClass">
-							<form action="index.php?page=users" method="post">
-								<select name="change-class">
-									<option value="admin<?= $user['id'] ?>">Admin</option> 
-									<option value="moderator<?= $user['id'] ?>">Moderator</option> 
-									<option value="user<?= $user['id'] ?>">User</option>
-								</select> 
-								<input type="submit" value="Change Privilege">
-							</form>
-							</span> 
-						</div>	 
-						<?php $totalUsers++; ?>
-					<?php endif ?> 
-				<?php endforeach ?> 
-			</div>  
-			<?php if ($totalUsers == 0): ?> 
-<<<<<<< HEAD
-				<p style="color:red;"> <i><b>Warning!</b> you cannot remove all admins from this site. 
-					Please give your account a user privilege or assign another user to take your place.</i></p>
-=======
-				<p style="color:red;"><b>Warning!</b> <i>You cannot remove all admins from this website. Please assign another user to be an admin</i></p>
->>>>>>> e09070038592417b54985b5e11ec30ed2dcb2bf1
-				<?php endif; ?>
-		<h3>Moderators</h3> 
-			<div class="user-table">	
-				<?php foreach($allUsers as $user):  ?> 
-					<?php if($user['privilege'] == "moderator" ): ?>
-						<div class="user">
-							<span class="uFirstName"><?= $user['first_name'] ?></span> 
-							<span class="uLastName"><?= $user['last_name'] ?></span> 
-							<span class="uEmail"><?= $user['email'] ?></span> 
-							<span class="uClass">
-							<form action="index.php?page=users" method="post">
-								<select name="change-class">
-									<option value="moderator<?= $user['id'] ?>">Moderator</option> 
-									<option value="admin<?= $user['id'] ?>">Admin</option> 
-									<option value="user<?= $user['id'] ?>">User</option>
-								</select> 
-								<input type="submit" value="Change Privilege">
-							</form>
-							</span> 
-						</div>	 
-						<?php $totalUsers++; ?>
-					<?php endif ?>
-				<?php endforeach ?> 
-			</div> 
-		<h3>Users</h3> 
-			<div class="user-table">	
-				<?php foreach($allUsers as $user):  ?> 
-					<?php if($user['privilege'] == "user" ): ?>
-						<div class="user">
-							<span class="uFirstName"><?= $user['first_name'] ?></span> 
-							<span class="uLastName"><?= $user['last_name'] ?></span> 
-							<span class="uEmail"><?= $user['email'] ?></span> 
-							<span class="uClass">
-							<form action="index.php?page=users" method="post">
-								<select name="change-class">
-									<option value="user<?= $user['id'] ?>">User</option>
-									<option value="moderator<?= $user['id'] ?>">Moderator</option> 
-									<option value="admin<?= $user['id'] ?>">Admin</option>
-								</select> 
-								<input type="submit" value="Change Privilege">
-							</form>
-							</span> 
-						</div>	 
-						<?php $totalUsers++; ?>
-					<?php endif ?>
-				<?php endforeach ?> 
-			</div>  
-		<p>There are <?= $totalUsers ?> users</p>
+	<?php $totalUsers = 0; $totalAdmins = 0; $totalMod = 0; $totalUser = 0; ?>
+	<h1>Users</h1>   	
+<table id="users-table"> 
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th> 
+		<th>Email</th>
+		<th>Privilege</th>
+	</tr> 
+	
+	<?php foreach($allUsers as $user):  ?> 
+		<?php if($user['privilege'] == "admin" ): ?>
+			<tr>
+				<td><?= $user['first_name'] ?></td>
+				<td><?= $user['last_name'] ?></td>
+				<td><?= $user['email'] ?></td> 
+				<td align="right">
+					<form action="index.php?page=users" method="post">
+						<select name="change-class">
+						<option value="admin<?= $user['id'] ?>">Admin</option>
+						<option value="moderator<?= $user['id'] ?>">Moderator</option> 
+						<option value="user<?= $user['id'] ?>">User</option>
+						</select> 
+						<input type="submit" value="Change Privilege">
+					</form>
+				</td> 
+			</tr>
+			<?php $totalUsers++; $totalAdmins++ ?>
+		<?php endif ?> 
+	<?php endforeach ?>
+
+	<?php foreach($allUsers as $user):  ?> 
+		<?php if($user['privilege'] == "moderator" ): ?>
+			<tr>
+				<td><?= $user['first_name'] ?></td>
+				<td><?= $user['last_name'] ?></td>
+				<td><?= $user['email'] ?></td> 
+				<td align="right">
+					<form action="index.php?page=users" method="post">
+						<select name="change-class">
+						<option value="moderator<?= $user['id'] ?>">Moderator</option>
+						<option value="admin<?= $user['id'] ?>">Admin</option>
+						<option value="user<?= $user['id'] ?>">User</option>
+						</select> 
+						<input type="submit" value="Change Privilege">
+					</form>
+				</td> 
+			</tr>
+			<?php $totalUsers++; $totalMod++ ?>
+		<?php endif ?> 
+	<?php endforeach ?> 
+	
+	<?php foreach($allUsers as $user):  ?> 
+		<?php if($user['privilege'] == "user" ): ?>
+			<tr>
+				<td><?= $user['first_name'] ?></td>
+				<td><?= $user['last_name'] ?></td>
+				<td><?= $user['email'] ?></td> 
+				<td align="right">
+					<form action="index.php?page=users" method="post">
+						<select name="change-class">
+						<option value="user<?= $user['id'] ?>">User</option>
+						<option value="moderator<?= $user['id'] ?>">Moderator</option> 
+						<option value="admin<?= $user['id'] ?>">Admin</option>
+						</select> 
+						<input type="submit" value="Change Privilege">
+					</form>
+				</td> 
+			</tr>
+			<?php $totalUsers++; $totalUser++ ?>
+		<?php endif ?>
+	<?php endforeach ?>  
+	<p>There are <b><?= $totalUsers ?></b> total users; <i><?= $totalAdmins ?> Admin<?php if( $totalAdmins > 1):?>s<?php endif; ?>,
+		<?= $totalMod ?> Moderator<?php if( $totalMod > 1):?>s<?php endif; ?>,
+		<?= $totalUser ?> registered user<?php if( $totalUser > 1):?>s<?php endif; ?>.</i> </p>
+	<?php if($totalAdmins == 0): ?> 
+		<p style="color:red"><b>Warning!</b> you cannot remove all Admins from this website. Please change 
+			<i>your</i> account privilege back to an amdin or select another user to take your place.</p> 
+	<?php endif; ?>	 
+	<?php if( $totalMod == 0 ): ?>
+	<p style="color:#FFD700">The site will run alot more smoothly if you assign a user to be a moderator for the website</p>
+<?php endif; ?>
+</table>
 </div>

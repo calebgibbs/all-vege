@@ -1,14 +1,14 @@
 <?php 
 	$this -> layout('master',[
-		'title'=>'Search', 
+		'title'=>'lunch Recipes', 
 		'desc' => 'view your search results' 
-
 	]); 
 ?>  
-<body id="search-bg">  
+<body id="search-bg"> 
+	 
 	<div id="search-results">
 
-		<h1>Side dish Recipes</h1>
+		<h1>Lunch Recipes</h1>
 
 		<?php if(strlen($searchTerm) > 0): ?> 
 

@@ -23,6 +23,11 @@ $(document).ready(function(){
 
 	$('#del-recipe, #no-button').click(function(){
 		$('#del-recipe-option').toggle();
-	});
+	}); 
+
+	$('.recipe-data').click(function(){
+        window.location = $(this).attr('href');
+        return false;
+    });
 	
 });

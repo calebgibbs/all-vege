@@ -6,21 +6,19 @@
 	]); 
 ?> 
 <?= $this->insert('panelNav') ?>
-<div id="page-setup">
-	
+<div id="page-setup">	
 	<h1>My Recipes</h1> 
 	
-	<div id="table">
-	<div class="recipe-results-title">
-		<span id="rec-title"><b>Title</b></span><span id="rec-desc"><b>Description</b></span>
-	</div>
-	<?php foreach($allRecipes as $item):  ?> 
-		<a href="index.php?page=recipe&recipeid=<?= $item['id'] ?>&edit">
-			<div class="recipe-results">
-				<span id="rec-title"><?= $item['title'] ?> </span><span id="rec-desc"><?= $item['description'] ?></span>
-			</div> 
-		</a> 
-	<?php endforeach ?> 
-	</div>
-
- </div>
+	<table>
+		<tr>
+			<th>Title</th> 
+			<th>Description</th>
+		</tr> 
+		<?php foreach($allRecipes as $item):  ?> 		
+			<tr class="recipe-data" href="index.php?page=recipe&recipeid=<?= $item['id'] ?>&edit">
+				<td><?= $item['title'] ?></td>
+				<td><?= $item['description'] ?></td>
+			</tr>  		 
+		<?php endforeach ?>
+	</table>
+</div>
