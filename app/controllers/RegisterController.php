@@ -19,10 +19,6 @@ class SignupController extends PageController{
 
 	}
 
-	public function registerAccount() {
-		
-	} 
-
 	public function buildHTML() {  
 
 		$plates = new League\Plates\Engine('app/templates');
@@ -67,7 +63,7 @@ class SignupController extends PageController{
 			$totalErrors++;
 		} 
 
-		$filteredEmail = $this->dbc->real_escape_string( $_POST['email'] );
+		$filteredEmail = $this->dbc->real_escape_string( lcfirst($_POST['email']) );
 
 		$sql = "SELECT email
 				FROM users
@@ -83,21 +79,23 @@ class SignupController extends PageController{
 		if( strlen($_POST['password']) < 8 ) {
 			$this->passwordMessage = 'Password must be longer than 8 characters';
 			$totalErrors++;	
+		} 
+
+		if ($_POST['password'] != $_POST['password2']) {
+			$this->passwordMessage = 'Passwords do not match';
+			$totalErrors++;
 		}
 		
 		if( $totalErrors == 0) { 
 		 
-			$filteredFirstName = $this->dbc->real_escape_string( $_POST['first-name'] ); 
-			$filteredLastName = $this->dbc->real_escape_string( $_POST['last-name'] );
+			$filteredFirstName = $this->dbc->real_escape_string( ucfirst($_POST['first-name']) ); 
+			$filteredLastName = $this->dbc->real_escape_string( ucfirst($_POST['last-name']) );
 			
- 
 			$hash = password_hash($_POST['password'], PASSWORD_BCRYPT);  
 
 			$sql = "INSERT INTO users (first_name, last_name, email, password)
 					VALUES ('$filteredFirstName', '$filteredLastName', '$filteredEmail', '$hash')"; 
 			$this->dbc->query($sql);  
-
-
 
 			$_SESSION['id'] = $this->dbc->insert_id;
 			$_SESSION['first_name'] = $filteredFirstName; 
@@ -109,19 +107,4 @@ class SignupController extends PageController{
 			header('Location: index.php?page=account'); 
 		}
 	}
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-

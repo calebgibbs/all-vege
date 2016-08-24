@@ -30,14 +30,13 @@
 					</div> 
 					<div>
 						<input type="password" id="pwd" name="password" placeholder="Password">
+					</div> 
+					<div>
+						<input type="password" id="pwd" name="password2" placeholder="Confirm Password">
 						<?php if( isset($passwordMessage) ) : ?>
             			<p> <?= $passwordMessage ?> </p>
             			<?php endif; ?>
 					</div> 
-				<!-- 	<div>
-						<input type="password" id="pwd" placeholder="Confirm Password">
-						<span id="c-pwd-message"></span>
-					</div>  -->
 					<div>
 						<input id="submit-bttn" type="submit" name="new-account" value="Create Account">
 					</div> 

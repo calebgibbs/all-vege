@@ -7,10 +7,9 @@
 ?> 
 <div id="content"> 
 					<div id= "d1"> 
-						<a href="#">
+						<a href="index.php?page=new">
 							<img src="images/new.jpg"> 
 						</a> 
-						<!-- <span class="cat-text"><h2>New Recipes</h2></span> -->
 					</div>
 					<div id="right-box">	
 						
