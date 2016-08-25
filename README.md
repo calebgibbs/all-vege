@@ -1,5 +1,5 @@
 # all-vege 
-To run this project; create a data base called 'all_vege' and import the all_vege.sql file.   
+To run this project; create a data base called 'all_vege' and import the all_vege.sql file and install everything with composer.   
   
 The users accounts all have the same password of 'password' (all lowercase)  
 the admin account email is: admin@test.com  
