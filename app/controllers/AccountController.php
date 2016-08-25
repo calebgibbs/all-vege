@@ -305,21 +305,49 @@ class AccountController extends PageController {
 		} 
 
 		if ($totalErrors == 0) { 
+			
+			if ($_SESSION['privilege'] == 'admin') {
+				
+				$sql = "SELECT privilege
+						FROM users 
+						WHERE privilege = 'admin'";
+				$result = $this->dbc->query($sql); 
 
-			if( $_SESSION['profile_picture'] != '' ) {
+				if( !$result || $result->num_rows == 1 ) {
+					$totalErrors++;
+					$this->data['contactMessage'] = '<p style="color:red;"><b>Fatal Warning!</b> You cannot remove your account because you are the last admin on the site.
+					You must <a href="index.php?page=users">assign someone else</a> to become a user before you delete your account</p>';  
+				}else {
+					if( $_SESSION['profile_picture'] != '' ) {
+						$this->deleteImages();
+					}else{ 
+						$this->removeAccount();
+					}	
+				}
+			} else { 
+				if( $_SESSION['profile_picture'] != '' ) {
 				$this->deleteImages();
-			}else{ 
+				}else{ 
 				$this->removeAccount();
 			}
+			} 
 
-		}
+	
+				
+	
+		
+
+		
+	}
+
+			
 
 	} 
 
 	private function deleteImages() { 
-		$userID = $_SESSION['id']; 
-
-		$sql = "SELECT profile_picture 
+		$userID = $_SESSION['id'];  
+		
+			$sql = "SELECT profile_picture 
 				FROM users
 				WHERE id = $userID"; 
 		$result = $this->dbc->query($sql);
@@ -333,12 +361,13 @@ class AccountController extends PageController {
 		unlink("images/uploads/account-profiles/thumbnail/$fileName");
 		
 		$this->removeAccount();
+		
 	} 
 
 	private function removeAccount() {
 		$userID = $_SESSION['id'];
 		$sql = "DELETE FROM users
-				WHERE id = $userID";
+				WHERE id = $userID"; 
 		$this->dbc->query($sql); 
 		header('Location: index.php?page=logout');
 	}  
