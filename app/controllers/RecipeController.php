@@ -14,6 +14,10 @@ class RecipeController extends PageController {
 
 		if (isset($_POST['new-comment'])) {
 			$this->addComment();
+		} 
+
+		if (isset($_GET['delete-comment'])) {
+			$this->deleteComment();
 		}
 
 		$this->getRecipeData(); 
@@ -36,7 +40,7 @@ class RecipeController extends PageController {
 			$this->data['recipe'] = $result->fetch_assoc();
 		} 
 
-		$sql = "SELECT comment, first_name, last_name, profile_picture  
+		$sql = "SELECT comments.id, comment, first_name, last_name, profile_picture, created_by  
 				FROM comments 
 				JOIN users 
 				ON comments.created_by = users.id
@@ -73,7 +77,8 @@ class RecipeController extends PageController {
 			$sql = "INSERT INTO comments (comment, created_by, recipe_id)
 					VALUES ('$comment', $userId, $recipeId)"; 
 
-			$this->dbc->query($sql); 
+			$this->dbc->query($sql);  
+			header("Location: ". $_SERVER['REQUEST_URI']."#leaveAcomment" ); //temp fix
 		}
 	}
 
@@ -114,7 +119,23 @@ class RecipeController extends PageController {
 
 		$this->dbc->query($sql);   
 		header('Location: index.php?page=myRecipes'); 
-	} 
+	}  
+
+	private function deleteComment() { 
+		$commentID = $_GET['delete-comment'];
+		$userID = $_SESSION['id'];
+		$admin = $_SESSION['privilege'] == 'admin';
+		$sql = "DELETE FROM comments 
+				WHERE id = $commentID"; 
+		if ($_SESSION['privilege'] != 'admin') {
+			$sql .= " AND created_by = $userID";
+		}
+
+		$this->dbc->query($sql);
+		unset($_GET['delete-comment']);
+
+
+	}
 } 
 
 

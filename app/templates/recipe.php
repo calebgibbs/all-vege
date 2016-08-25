@@ -63,13 +63,17 @@
 								$comment['profile_picture'] = "default.png";
 							}
 						 ?>
-
 						<img src="images/uploads/account-profiles/comment/<?= $comment['profile_picture'] ?>">
 					</div> 
 					<div class="comment-decs">
 						<article>
-							<h4><?= htmlentities($comment['first_name']) ?>  <?= htmlentities($comment['last_name']) ?></h4> 
-							<p><?= htmlentities($comment['comment']) ?></p>
+							<h4 class="comment-name"><?= htmlentities($comment['first_name']) ?>  <?= htmlentities($comment['last_name']) ?></h4> 
+							<?php if(isset($_SESSION['id'])): ?>
+							<?php if( $_SESSION['privilege'] == 'admin' || $comment['created_by'] == $_SESSION['id']): ?>
+							<span class="remove-comment"><a href="<?= $_SERVER['REQUEST_URI'] ?>&delete-comment=<?= $comment['id'] ?>"><i class="fa fa-times-circle-o"></i></a></span>
+							<?php endif; ?>
+							<?php endif; ?>
+							<p class="comment-content"><?= htmlentities($comment['comment']) ?></p>
 						</article>
 					</div>  
 				</div>

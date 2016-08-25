@@ -734,85 +734,6 @@ nav {
 	display: none;
 } 
 
-#table { 
-	width: 90%; 
-	margin: 0 auto; 
-	border: 1px solid #000;
-	border-bottom: 0;
-}  
-
-#table a {
-	text-decoration: none;
-}
-
-#rec-title { 
-	width: 25%; 
-	display: inline-block; 
-	border-right: 1px solid #000;
-	margin-left: 5px;  
-	padding:5px;
-} 
-
-#rec-desc {
-	margin-left: 5px; 
-	display: inline-block; 
-	overflow: hidden; 
-	white-space: nowrap; 
-} 
-
-.recipe-results { 
-	border-bottom: 1px solid #000;  
-	color: #000; 
-
-} 
-
-.recipe-results-title { 
-	border-bottom: 1px solid #000;
-} 
- 
-.recipe-results:hover { 
-	background-color: #f2f2f2;
-} 
-
-.user-table{ 
-	width: 90%; 
-	margin: 0 auto; 
-	border: 1px solid #000; 
-	border-bottom: 0; 
-} 
-
-.user { 
-	border-bottom: 1px solid #000; 
-	padding: 5px;
-} 
-
-.user:hover { 
-	background-color: #f2f2f2;
-}
-
-.uFirstName { 
-	display: inline-block;  
-	width: 19%; 
-	 
-} 
-
-.uLastName { 
-	display: inline-block;  
-	width: 19%; 
-	
-} 
-
-.uEmail { 
-	display: inline-block;  
-	width: 39%; 
-	
-} 
-
-.uClass { 
-	display: inline-block;  
-	width: 19%;
-} 
-
 button {
      background:none!important;
      border:none; 
@@ -830,10 +751,6 @@ button {
 	text-decoration: none; 
 	color: #000; 
 	list-style-type: none;
-} 
-
-#recipe-settings { 
-	
 } 
 
 #comments { 
@@ -856,10 +773,43 @@ button {
 	float: left; 
 	padding-right: 10px; 
 	padding-bottom: 5px;
+	vertical-align: top;
 }  
 
 .comment-img img { 
-	border: 1px solid #999;
+	border: 1px solid #999; 
+	vertical-align: top; 
+	display: inline-block;
+}  
+
+.comment-name { 
+	vertical-align: top; 
+	display: inline-block; 
+	margin-top: 0;
+} 
+
+.remove-comment a {
+	color: #999;
+}  
+
+.remove-comment a:hover {
+	color: #fff;
+}
+
+.remove-comment { 
+	vertical-align: top; 
+	float: right; 
+	display: inline-block;  
+	display: none;
+} 
+
+.comment:hover span { 
+	display: inline-block; 
+}
+.comment span:hover { 
+	display: inline-block;  
+	color: #fff; 
+	cursor: pointer;
 }
 
 .comment-desc { 
@@ -889,6 +839,10 @@ button {
 
 #leave-comment input { 
 	right: 0;
+}
+
+.remove-comment { 
+	text-align: right;
 }
 
 table{ 
