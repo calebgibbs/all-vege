@@ -151,11 +151,7 @@ class EditRecipeController extends PageController {
 
 		$this->dbc->query($sql);
 
-		if( $this->dbc->affected_rows == 0 ) {
-			$this->data['updateMessage'] = 'Nothing changed';
-		} else {
-			header("Location: index.php?page=recipe&recipeid=$recipeID&edit");
-		}
+		header("Location: index.php?page=recipe&recipeid=$recipeID&edit");
 	} 
 
 	private function getFileExtension( $mimeType ) {

@@ -42,8 +42,30 @@
 			<div>
 				<div id="tags">
 					<label class="label">Category:</label>  
-					<select name="category">
-						<option value="0">-Please sleect-</option>
+					<select name="category"> 
+					<?php if(isset($_POST['category'])): ?>  
+						<?php 
+							if ( $_POST['category'] == 'side') {
+								$valueName = "Side dish";
+							}elseif ($_POST['category'] == 'breakfast') {
+								$valueName = "Breakfast";
+							}elseif ($_POST['category'] == 'lunch') {
+								$valueName = "Lunch";
+							}elseif ($_POST['category'] == 'dinner') {
+								$valueName = "Dinner";
+							}elseif ($_POST['category'] == 'baked') {
+								$valueName = "Baked goods";
+							}elseif ($_POST['category'] == 'beverage') {
+								$valueName = "Beverage";
+							}else{ 
+								$valueName = "-Please select-";	
+							}
+						?>
+						<option value="<?= $_POST['category'] ?>"><?= $valueName ?></option> 
+					<?php endif ?>
+					<?php if(!isset($_POST['category'])): ?>
+						<option value="0">-Please select-</option> 
+					<?php endif ?>
 						<option value="side">Side dish</option>
 						<option value="breakfast">Breakfast</option> 
 						<option value="lunch">Lunch</option>
@@ -61,8 +83,23 @@
 
 				
 
-				<select name="serves">
-  					<option value="0">-Please sleect-</option>
+				<select name="serves"> 
+					
+  					
+  					
+  					<?php if(isset($_POST['serves'])): ?>
+  					<option value="<?= $_POST['serves'] ?>"><?php 
+  						if ($_POST['serves'] == 0) {
+  							echo "-Please select-";
+  						}else{ 
+  							echo $_POST['serves'];
+  						}
+
+  					?></option>
+  					<?php endif; ?> 
+  					<?php if(!isset($_POST['serves'])): ?>
+  					<option value="0">-Please select-</option> 
+  				<?php endif; ?>
   					<option value="1">1</option>
   					<option value="2">2</option>
   					<option value="3">3</option>
