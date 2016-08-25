@@ -57,6 +57,8 @@
 								$valueName = "Baked goods";
 							}elseif ($_POST['category'] == 'beverage') {
 								$valueName = "Beverage";
+							}elseif($_POST['category'] == 'dessert'){
+								$valueName = "Dessert";
 							}else{ 
 								$valueName = "-Please select-";	
 							}

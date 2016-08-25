@@ -145,11 +145,13 @@ class EditRecipeController extends PageController {
 					serves = $serves, 
 					image = '$imageName'
 				WHERE id = $recipeID"; 
-		if( $_SESSION['privilege'] != 'admin'){ 
-			$sql .= "AND created_by = $myID";
+		if( $_SESSION['privilege'] == 'moderator'){ 
+			$sql .= " AND created_by = $myID";
+			
 		}
 
-		$this->dbc->query($sql);
+		$this->dbc->query($sql); 
+		
 
 		header("Location: index.php?page=recipe&recipeid=$recipeID&edit");
 	} 

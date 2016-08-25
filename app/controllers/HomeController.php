@@ -1,23 +1,12 @@
 <?php 
 
-class HomeController {  
+class HomeController  {  
 
-
-
-	//properties 
-
-	//constructor (help build the page) 
 	public function __construct() {
 
 	
 
 	}
-
-	//methods (functions) 
-	public function login() {
-
-
-	} 
 
 	public function buildHTML() {  
 

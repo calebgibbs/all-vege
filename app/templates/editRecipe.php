@@ -98,6 +98,8 @@
 								$valueName = "Baked goods";
 							}elseif ($recipe['category'] == 'beverage') {
 								$valueName = "Beverage";
+							}elseif ($recipe['category'] == 'dessert') {
+								$valueName = "Dessert";
 							}
 						?> 
 						<?php if(!isset($_POST['category'])): ?>
@@ -117,6 +119,8 @@
 								$valueName = "Baked goods";
 							}elseif ($_POST['category'] == 'beverage') {
 								$valueName = "Beverage";
+							}elseif ($_POST['category'] == 'dessert') {
+								$valueName = "Dessert";
 							}
 						?> 
 						<option value="<?= $_POST['category'] ?>"><?= $valueName ?></option>
