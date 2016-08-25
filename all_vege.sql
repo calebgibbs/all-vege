@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 25, 2016 at 07:06 AM
+-- Generation Time: Aug 25, 2016 at 08:57 AM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.23
 
@@ -99,9 +99,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `profile_picture`, `password`, `privilege`) VALUES
-(1, 'Admin', 'Account', 'admin@test.com', '', '$2y$10$Is.r4PAkoT14Y.gZZs0xROUM/hTBcnheq4Ru1g6aGMJyCaGuJ3AN2', 'admin'),
-(3, 'Moderator ', 'Account', 'mod@test.com', '', '$2y$10$lwO.Gm1152cLfCBVeFFUQ.fB71g7Fx970HMWJwgUJ.OwIjI9KdEe6', 'moderator'),
-(25, 'User', 'Account', 'user@test.com', '', '$2y$10$EqskGd0HbFnjdo8U6o5UJOdzF1wM1vYkDy3z8.3lwB0/78l5Mj5ai', 'user');
+(1, 'Admin', 'Account', 'admin@test.com', '', '$2y$10$2M5EVLqOmDBSXzVn10v6BuwWihRteX.CJmGKI9mCOl/LskhZK/mSS', 'admin'),
+(3, 'Moderator ', 'Account', 'mod@test.com', '', '$2y$10$jzB/tSTf7crB4ffL3MBAV.AMtdb9cy.zAaGb3aMzWxmzC7lO5EBtq', 'moderator'),
+(25, 'User', 'Account', 'user@test.com', '', '$2y$10$dy/lTzYhZOkd9puwfnFsbeU.F/ckyh63x8e0nOsPdKDiaTpzHYS1u', 'user');
 
 --
 -- Indexes for dumped tables
