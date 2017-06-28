@@ -46,7 +46,8 @@ class AccountController extends PageController {
 		}
 		
 
-		if($totalErrors == 0) {  
+		if($totalErrors == 0) {   
+
 		
 			$userID = $_SESSION['id']; 
 
@@ -56,7 +57,7 @@ class AccountController extends PageController {
 			$result = $this->dbc->query($sql);
 			$result = $result->fetch_assoc(); 	
 
-			if ($result['profile_picture']  != '') {
+			if ($result['profile_picture']  != '') { 
 				$fileName = $result['profile_picture']; 
 				unlink("images/uploads/account-profiles/original/$fileName");
 				unlink("images/uploads/account-profiles/account/$fileName");

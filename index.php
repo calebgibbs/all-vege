@@ -1,14 +1,15 @@
 <?php  
+date_default_timezone_set('Pacific/Auckland');
 
 session_start();
 
 require 'vendor/autoload.php';
 require 'app/controllers/PageController.php';  
- 
+
  
 $page = isset($_GET['page']) ? $_GET['page'] : 'home';
 
-$dbc = new mysqli('localhost', 'root', '',  'all_vege');
+$dbc = new mysqli('localhost', 'root', 'password',  'all_vege');
 
 switch ($page) {
 	case 'home':
